@@ -12,7 +12,5 @@ ActiveSupport.on_load(:action_controller) do
   # ActiveSupport.on_load(:active_record) do
   #   self.include_root_in_json = true
   # end
-  Footer
-  © 2022 GitHub, Inc.
-  Footer navigation
+ 
   
