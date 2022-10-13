@@ -10,7 +10,7 @@ class CollectionsController < ApplicationController
   
     # GET /collections/1
     def show
-      render json: @collection
+      render json: @collection, include: :users
     end
   
     # POST /collections
