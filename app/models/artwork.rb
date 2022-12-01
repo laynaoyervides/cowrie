@@ -1,3 +1,3 @@
-class Artwork < ApplicationRecord
-    belongs_to :collections
+class Artwork < ActiveRecord::Base
+    belongs_to :collection
 end

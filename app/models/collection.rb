@@ -1,4 +1,4 @@
-class Collection < ApplicationRecord
-    belongs_to :users
+class Collection < ActiveRecord::Base
+    belongs_to :user
     has_many :artworks
 end

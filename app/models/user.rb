@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class User < ActiveRecord::Base
     has_secure_password
     validates :username, presence: true, uniqueness:true
    
@@ -8,6 +8,4 @@ class User < ApplicationRecord
     has_many :tutorials
     has_many :nfts
     has_many :cowries, through: :investments
-    has_many :artworks, through: :collections
-
 end

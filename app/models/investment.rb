@@ -1,5 +1,5 @@
-class Investment < ApplicationRecord
-    belongs_to :users
-    belongs_to :cowries
+class Investment < ActiveRecord::Base
+    belongs_to :user
+    belongs_to :cowry
 
 end

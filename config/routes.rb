@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   # root "articles#index"
     
     Rails.application.routes.draw do
-      get '/hello', to: 'application#hello_world'
 
       resources :artworks
       resources :cowries

@@ -1,3 +1,3 @@
-class Nft < ApplicationRecord
-    belongs_to :users
+class Nft < ActiveRecord::Base
+    belongs_to :user
 end

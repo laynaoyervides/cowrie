@@ -1,5 +1,4 @@
-class Tutorial < ApplicationRecord
-    belongs_to :users
-    has_many :artworks
+class Tutorial < ActiveRecord::Base
+    belongs_to :user
 
 end
