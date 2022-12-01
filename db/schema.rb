@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_01_202058) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_01_202407) do
   create_table "artworks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -73,6 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_202058) do
     t.string "password_digest"
     t.string "bio"
     t.string "email"
+    t.boolean "admin", default: false
   end
 
 end

@@ -52,6 +52,14 @@ wv = User.create! ({
     username: "Willard Velasquez",
     password: "password"
 })
+
+lo = User.create! (
+    {
+    username: "Layna Oyervides", 
+    password: "password", 
+    admin: 1
+}
+)
 #add collections for users
 coll_iz=Collection.create!(
    {title:"IZA’s Collection", 
