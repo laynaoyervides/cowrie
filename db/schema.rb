@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_01_185844) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_01_202058) do
   create_table "artworks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -33,6 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_185844) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "investment_id"
+    t.integer "cowrie_volume"
   end
 
   create_table "investments", force: :cascade do |t|
@@ -45,6 +46,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_185844) do
   create_table "nfts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "nft_id"
     t.integer "user_id"
   end
 
