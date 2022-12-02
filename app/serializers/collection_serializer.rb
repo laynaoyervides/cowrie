@@ -1,5 +1,5 @@
 class CollectionSerializer < ActiveModel::Serializer
-    attributes :id 
+    attributes :id, :title, :description 
     belongs_to :user
     has_many :artworks
   end

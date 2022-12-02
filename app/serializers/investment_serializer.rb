@@ -1,5 +1,5 @@
 class InvestmentSerializer < ActiveModel::Serializer
-    attributes :id
+    attributes :id, :amount
     belongs_to :user
     belongs_to :cowry
   end
