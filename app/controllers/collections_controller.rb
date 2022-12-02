@@ -11,7 +11,7 @@ class CollectionsController < ApplicationController
   
     # GET /collections/1
     def show
-      render json: @collection, include: ('artworks'), status: :ok
+      render json: @collection, include: ['artworks'], status: :ok
     end
   
     # POST /collections

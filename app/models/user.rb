@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
     has_many :investments
     has_many :collections
     has_many :tutorials
-    has_many :nfts
+    has_many :purchases
+    has_many :nfts, through: :purchases
     has_many :cowries, through: :investments
 end

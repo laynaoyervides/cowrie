@@ -4,7 +4,7 @@ class UsersController < ApplicationController
      # GET /users
      def index
        @users = User.all
-       render json: @users, include: ['collections', 'collections.artworks']
+       render json: @users, include: ['collections', 'collections.artworks', 'investments', 'purchases']
      end
    
   #get '/me'
