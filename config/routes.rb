@@ -7,12 +7,12 @@ Rails.application.routes.draw do
     Rails.application.routes.draw do
 
       resources :artworks
-      resources :cowries
-      resources :nfts
+      resources :cowries, only [:index, :show, :update]
+      resources :nfts, only [:index, :show, :create]
       resources :tutorials
       resources :collections
+      resources :purchases
       resources :investments
-      resources :admins
       resources :users
       # Routing logic: fallback requests for React Router.
       post "/signup", to: "users#create"

@@ -1,38 +1,32 @@
 class UsersController < ApplicationController
-    #skip_before_action :authorize, only :create
+    skip_before_action :confirm_authentication, only: :create
    
      # GET /users
      def index
        @users = User.all
-   
-       render json: @users, include: :collections
+       render json: @users, include: ['collections', 'collections.artworks']
      end
    
-     # GET /users/1
-     def show
-       render json: @current_user, include: :collections
-     end
+  #get '/me'
+    def show
+      if current_user
+          render json: current_user , include: ['collections', 'collections.artworks']
+      else
+          render json: { error: 'No active session'}, status: :unauthorized
+      end
+  end
    
-     # POST /users
-     def create
-       user = User.create!(user_params)
-       session[:user_id] = user.id
-       render json: user, status: :created
-     end
-   
-     # PATCH/PUT /users/1
-     def update
-       if @user.update(user_params)
-         render json: @user
-       else
-         render json: @user.errors, status: :unprocessable_entity
-       end
-     end
-   
-     # DELETE /users/1
-     def destroy
-       @user.destroy
-     end
+   #post /signup
+   def create
+    user = User.create(user_params)
+    if user.valid?
+        session[:user_id] = user.id
+        #above is us remembering who our user is
+        render json: user, status: :ok
+    else
+        render json: {error: user.errors.full_messages }, status: :unprocessable_entity
+    end
+end
    
      private
    

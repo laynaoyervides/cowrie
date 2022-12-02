@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_01_202407) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_01_202942) do
   create_table "artworks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_202407) do
     t.string "list_price"
     t.string "owner"
     t.integer "collection_id"
+    t.string "img_url"
   end
 
   create_table "collections", force: :cascade do |t|
