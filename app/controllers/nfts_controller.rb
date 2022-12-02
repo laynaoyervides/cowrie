@@ -10,7 +10,7 @@ class NftsController < ApplicationController
         end
     
         def show
-            nft = Nft.create!(nft_params)
+            render json: @nft, status: :ok
         end
     
         def create
