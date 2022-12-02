@@ -47,4 +47,3 @@ class NftsController < ApplicationController
     end
     
 
-end

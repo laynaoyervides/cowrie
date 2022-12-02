@@ -6,8 +6,8 @@ class InvestmentsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
     # GET /investments
     def index
-      @investments = Investment.all, include: ['user'], status: :ok
-      render json: @investments
+      @investments = Investment.all
+      render json: @investments, status: :ok
     end
   
     # GET /investments/1

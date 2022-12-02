@@ -27,5 +27,6 @@ class ApplicationController < ActionController::API
 
         def render_not_found(error)
             render json: {message: error.message}, status: :not_found
+        end
 
 end

@@ -1,5 +1,7 @@
-class CollectionsController < ApplicationController
+class CowriesController < ApplicationController
         before_action :find_cowry, only: [:show, :update, :destroy]
+        before_action :confirm_authentication  
+
     
         rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
         rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
@@ -31,7 +33,7 @@ class CollectionsController < ApplicationController
     private
         
         def cowry_params
-            params.permit()
+            params.permit(:cowry_volume)
         end
     
         def find_cowry
@@ -48,5 +50,3 @@ class CollectionsController < ApplicationController
     end
     
 
-end
-end

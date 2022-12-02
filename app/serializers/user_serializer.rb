@@ -3,7 +3,6 @@ class UserSerializer < ActiveModel::Serializer
     
     has_many :investments
     has_many :collections
-    has_many :artworks
     has_many :purchases
     has_many :tutorials 
   end
