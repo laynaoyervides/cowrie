@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     Rails.application.routes.draw do
 
       resources :artworks
-      resources :cowries, only [:index, :show, :update]
-      resources :nfts, only [:index, :show, :create]
+      resources :cowries
+      resources :nfts
       resources :tutorials
       resources :collections
       resources :purchases

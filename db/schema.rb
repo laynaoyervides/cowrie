@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_01_202942) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_02_022508) do
   create_table "artworks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -54,6 +54,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_202942) do
     t.datetime "updated_at", null: false
     t.integer "nft_id"
     t.integer "user_id"
+    t.integer "price"
+    t.integer "royalty_percentage", default: 10
   end
 
   create_table "tutorials", force: :cascade do |t|
