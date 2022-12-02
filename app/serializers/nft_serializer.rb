@@ -1,4 +1,4 @@
 class NftSerializer < ActiveModel::Serializer
-    attributes :id
+    attributes :id, :token_id, :image
     has_many :purchases
   end

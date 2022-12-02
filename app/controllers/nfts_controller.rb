@@ -30,7 +30,7 @@ class NftsController < ApplicationController
     private
         
         def nft_params
-            params.permit()
+            params.permit(:token_id, :image)
         end
     
         def find_nft
