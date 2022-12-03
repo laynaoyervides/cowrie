@@ -1,6 +1,7 @@
 class CowriesController < ApplicationController
         before_action :find_cowry, only: [:show, :update, :destroy]
         before_action :confirm_authentication  
+        before_action :authorize_user, only: [:index, :create, :destroy]
 
     
         rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
@@ -40,6 +41,11 @@ class CowriesController < ApplicationController
         @nft = Cowry.find(params[:id])
         end
     
+        def authorize_user
+            user_can_modify = current_user.admin?
+             render json: { error: "You don't have permission to perform this action" }, status: :forbidden unless user_can_modify
+         end
+
         def render_unprocessable_entity_response(invalid)
         render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
         end

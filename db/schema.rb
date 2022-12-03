@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_02_055448) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_03_055418) do
   create_table "artworks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_055448) do
     t.string "owner"
     t.integer "collection_id"
     t.string "img_url"
+    t.boolean "for_sale", default: false
   end
 
   create_table "collections", force: :cascade do |t|
@@ -28,6 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_055448) do
     t.string "title"
     t.string "description"
     t.integer "user_id"
+    t.string "collection_img"
   end
 
   create_table "cowries", force: :cascade do |t|
@@ -36,6 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_055448) do
     t.integer "investment_id"
     t.integer "cowrie_volume"
     t.integer "cowry_volume"
+    t.integer "cowry_price"
   end
 
   create_table "investments", force: :cascade do |t|
