@@ -34,7 +34,7 @@ class CowriesController < ApplicationController
     private
         
         def cowry_params
-            params.permit(:cowry_volume)
+            params.permit(:cowry_volume, :current_price)
         end
     
         def find_cowry

@@ -1,6 +1,6 @@
 class ArtworksController < ApplicationController
   before_action :find_artwork, only: [:show, :update, :destroy]
-  before_action :confirm_authentication  
+  #before_action :confirm_authentication  
 
   
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
@@ -13,6 +13,11 @@ class ArtworksController < ApplicationController
           render json: artworks, status: :ok
         end
       
+        def search
+          @artworks = Artwork.where('keywords LIKE ?', '%' + params[:q]+ '%')
+          render json: @artworks, status: :ok
+        end
+
         def show
           render json: @artwork, status: :ok
         end
@@ -39,7 +44,7 @@ class ArtworksController < ApplicationController
         end
 
         def artwork_params
-        params.permit(:title, :date_created, :list_price, :owner, :img_url)
+        params.permit(:title, :date_created, :list_price, :owner, :img_url, :for_sale, :keywords)
         end
 
         def render_unprocessable_entity_response(invalid)

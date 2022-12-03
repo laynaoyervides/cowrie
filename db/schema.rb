@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_03_055418) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_03_055850) do
   create_table "artworks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_055418) do
     t.integer "collection_id"
     t.string "img_url"
     t.boolean "for_sale", default: false
+    t.string "keywords"
   end
 
   create_table "collections", force: :cascade do |t|
@@ -47,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_055418) do
     t.integer "user_id"
     t.integer "cowry_id"
     t.integer "amount"
+    t.string "description"
   end
 
   create_table "nfts", force: :cascade do |t|
@@ -64,6 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_055418) do
     t.integer "price"
     t.integer "royalty_percentage", default: 10
     t.string "image_thumbnail"
+    t.string "description"
   end
 
   create_table "tutorials", force: :cascade do |t|

@@ -30,7 +30,7 @@ class PurchasesController < ApplicationController
 private
     
     def purchase_params
-        params.permit(:price, :royalty_percentage, :image_thumbnail)
+        params.permit(:price, :royalty_percentage, :image_thumbnail, :description)
     end
 
     def find_purchase

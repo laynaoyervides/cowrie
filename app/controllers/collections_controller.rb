@@ -42,7 +42,7 @@ class CollectionsController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def collection_params
-        params.permit(:title, :description)
+        params.permit(:title, :description, :collection_img)
       end
 
       def render_unprocessable_entity_response(invalid)

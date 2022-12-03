@@ -41,7 +41,7 @@ class InvestmentsController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def investment_params
-        params.permit(:amount)
+        params.permit(:amount, :description)
       end
 
       def render_unprocessable_entity_response(invalid)
