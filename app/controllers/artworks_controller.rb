@@ -1,6 +1,6 @@
 class ArtworksController < ApplicationController
   before_action :find_artwork, only: [:show, :update, :destroy]
-  #before_action :confirm_authentication  
+  before_action :confirm_authentication  
 
   
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
