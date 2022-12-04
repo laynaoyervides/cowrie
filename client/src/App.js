@@ -2,10 +2,48 @@ import React from "react";
 import {Routes, Route} from "react-router-dom"
 import React, {useState, useEffect} from "react" 
 
+//import child Components
+import Landing from './Landing'
+import Nav from './Nav'
+import Home from './Home'
+import Collections from './Collections'
+import Marketplace from './Marketplace'
+import Wallet from './Wallet'
+import Learn from './Learn'
+import Teach from './Teach'
+
+
 function App() {
+
+//Get current user
+const [user, setUser] = useState(null)
+
+useEffect(()=>{
+  fetch("/me")
+  .then((r)=>{
+    if (r.ok) {
+      r.json().then((user) => setUser(user));
+    }
+  });
+}, []);
+
+if (!user) return(
+<div> 
+  <Landing />
+</div>
+)
   
   return (
     <div>
+      <Nav />
+      <Routes>
+        <Route exact path="/" element={<Home/>}></Route>
+        <Route path="/collections" element={<Collections/>}></Route>
+        <Route path="/marketplace" element={<Marketplace/>}></Route>
+        <Route path="/wallet" element={<Wallet/>}></Route>
+        <Route path="/learn" element={<Learn/>}></Route>
+        <Route path="/teacher" element={<Teach/>}></Route>
+      </Routes>
     </div>
   );
 }
