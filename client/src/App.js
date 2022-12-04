@@ -33,6 +33,19 @@ if (!user) return(
 </div>
 )
   
+if (user.admin) return (
+  <div>
+    <Nav />
+    <Routes>
+      <Route exact path="/" element={<Home/>}></Route>
+      <Route path="/collections" element={<Collections/>}></Route>
+      <Route path="/marketplace" element={<Marketplace/>}></Route>
+      <Route path="/wallet" element={<Wallet/>}></Route>
+      <Route path="/teach" element={<Teach/>}></Route>
+    </Routes>
+  </div>
+);
+
   return (
     <div>
       <Nav />
@@ -42,7 +55,6 @@ if (!user) return(
         <Route path="/marketplace" element={<Marketplace/>}></Route>
         <Route path="/wallet" element={<Wallet/>}></Route>
         <Route path="/learn" element={<Learn/>}></Route>
-        <Route path="/teacher" element={<Teach/>}></Route>
       </Routes>
     </div>
   );
