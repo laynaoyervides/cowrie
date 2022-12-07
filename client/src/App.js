@@ -1,6 +1,5 @@
-import React from "react";
-import {Routes, Route} from "react-router-dom"
 import React, {useState, useEffect} from "react" 
+import {Routes, Route} from "react-router-dom"
 
 //import child Components
 import Landing from './Landing'
@@ -29,13 +28,13 @@ useEffect(()=>{
 
 if (!user) return(
 <div> 
-  <Landing />
+  <Landing onLogin={setUser}/>
 </div>
 )
   
 if (user.admin) return (
   <div>
-    <Nav />
+    <Nav user={user} setUser={setUser}/>
     <Routes>
       <Route exact path="/" element={<Home/>}></Route>
       <Route path="/collections" element={<Collections/>}></Route>
@@ -48,7 +47,7 @@ if (user.admin) return (
 
   return (
     <div>
-      <Nav />
+      <Nav user={user} setUser={setUser}/>
       <Routes>
         <Route exact path="/" element={<Home/>}></Route>
         <Route path="/collections" element={<Collections/>}></Route>
