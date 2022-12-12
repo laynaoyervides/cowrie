@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Wallet({user}) {
+function Artworks(props) {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function Wallet({user}) {
     );
 }
 
-export default Wallet;
+export default Artworks;

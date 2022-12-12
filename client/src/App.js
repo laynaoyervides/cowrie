@@ -36,11 +36,11 @@ if (user.admin) return (
   <div>
     <Nav user={user} setUser={setUser}/>
     <Routes>
-      <Route exact path="/" element={<Home/>}></Route>
-      <Route path="/collections" element={<Collections/>}></Route>
-      <Route path="/marketplace" element={<Marketplace/>}></Route>
-      <Route path="/wallet" element={<Wallet/>}></Route>
-      <Route path="/teach" element={<Teach/>}></Route>
+      <Route exact path="/" element={<Home user={user}/>}></Route>
+      <Route path="/collections" element={<Collections user={user}/>}></Route>
+      <Route path="/marketplace" element={<Marketplace user={user}/>}></Route>
+      <Route path="/wallet" element={<Wallet user={user}/>}></Route>
+      <Route path="/teach" element={<Teach user={user}/>}></Route>
     </Routes>
   </div>
 );
@@ -49,11 +49,11 @@ if (user.admin) return (
     <div>
       <Nav user={user} setUser={setUser}/>
       <Routes>
-        <Route exact path="/" element={<Home/>}></Route>
-        <Route path="/collections" element={<Collections/>}></Route>
-        <Route path="/marketplace" element={<Marketplace/>}></Route>
-        <Route path="/wallet" element={<Wallet/>}></Route>
-        <Route path="/learn" element={<Learn/>}></Route>
+        <Route exact path="/" element={<Home user={user}/>}></Route>
+        <Route path="/collections" element={<Collections user={user}/>}></Route>
+        <Route path="/marketplace" element={<Marketplace user={user}/>}></Route>
+        <Route path="/wallet" element={<Wallet user={user}/>}></Route>
+        <Route path="/learn" element={<Learn user={user}/>}></Route>
       </Routes>
     </div>
   );

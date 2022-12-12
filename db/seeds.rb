@@ -78,6 +78,7 @@ lo = User.create! (
     username: "Layna Oyervides", 
     password: "password", 
     admin: 1,
+    bio:"lorem ipsum lorem ipsum lorem ipsum", 
     image_url:"https://res.cloudinary.com/dhgw364gk/image/upload/v1669934737/default_profile_pic_wkgtad.jpg"
 }
 )
@@ -176,6 +177,17 @@ coll_wv=Collection.create (
         Tellus cras adipiscing enim eu turpis egestas pretium 
         aenean pharetra."
     })
+    coll_lo=Collection.create (
+        {title:"Layna’s Collection", 
+        user_id: lo.id,
+        collection_img: "https://res.cloudinary.com/dhgw364gk/image/upload/v1669849745/sample.jpg",
+        description: "Lorem ipsum dolor sit amet, 
+        consectetur adipiscing elit, sed do eiusmod tempor incididunt 
+            ut labore et dolore magna aliqua. A diam maecenas sed enim ut. 
+            Massa tincidunt dui ut ornare lectus sit amet. 
+            Tellus cras adipiscing enim eu turpis egestas pretium 
+            aenean pharetra."
+        })
 
 #create some artworks for a collection
 rr = Artwork.create! ({title:"Red River", keywords:"nature, red, river",collection_id: coll_iz.id, img_url: "https://res.cloudinary.com/dhgw364gk/image/upload/v1669930323/red_river_pgsljz.jpg"})

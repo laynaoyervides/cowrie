@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Marketplace(props) {
+function Marketplace({user}) {
     return (
         <div>
             
