@@ -1,12 +1,13 @@
 import React , {useState} from 'react';
 import {Card, CardMedia, Box, Typography, CardContent} from "@mui/material"
 import EditCollection from './EditCollection';
+//import ArtworkDetail from './ArtworkDetail';
 
 function CollectionDetail({deleteCollection, onUpdateCollection, collection, user }) {
     
     const{title, description, collection_img}= collection
     const [isEditing, setIsEditing]= useState(false);
-    const [artwworks, setArtworks] = useState([])
+   // const [artworks, setArtworks] = useState([])
 
 
     const handleCollectionUpdate = (updatedCollection) => {
@@ -14,10 +15,11 @@ function CollectionDetail({deleteCollection, onUpdateCollection, collection, use
         onUpdateCollection(updatedCollection);
       };
 
-   function showArtworks (e) {
-        e.preventDefault();
-        setArtworks(collection.artwworks)
-    }
+ //function showArtworks (e) {
+ //       e.preventDefault();
+  //      setArtworks(collection.artworks)
+
+   // } 
     
     return (
         <div>
@@ -44,8 +46,18 @@ function CollectionDetail({deleteCollection, onUpdateCollection, collection, use
             <button onClick={() => deleteCollection(collection.id)}><h5>DELETE</h5></button>
             <br></br>
             <br></br>
-            <button onClick={setArtworks}>View Artworks</button>
+            <button>View Artworks</button>
             </Box>
+           {/*  <Box>
+            { collection.artworks.map((artworks) => 
+                <ArtworkDetail
+                key={artworks.id}
+                />
+
+                )
+                
+}
+            </Box> */}
             </CardContent>
         </Card>
         

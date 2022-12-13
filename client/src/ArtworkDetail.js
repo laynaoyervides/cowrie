@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Artworks(props) {
+function ArtworkDetail(props) {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function Artworks(props) {
     );
 }
 
-export default Artworks;
+export default ArtworkDetail;

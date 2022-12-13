@@ -16,11 +16,11 @@ function Nav({user, setUser}) {
             <div>
                 <Toolbar>
                     <Tabs>
-                    <Link to="/"><Tab label="Home"></Tab></Link>
-                    <Link to="/collections"><Tab label="Collections"></Tab></Link>
-                    <Link to="/marketplace"><Tab label="Marketplace"></Tab></Link>
-                    <Link to="/wallet"><Tab label="Wallet"></Tab></Link>
-                    <Link to="/learn"><Tab label="Learn"></Tab></Link>
+                    <Link to="/"><Tab label="Home" value="0"/></Link>
+                    <Link to="/collections"><Tab label="Collections" value="1"/></Link>
+                    <Link to="/marketplace"><Tab label="Marketplace" value="2"/></Link>
+                    <Link to="/wallet"><Tab label="Wallet" value="3"/></Link>
+                    <Link to="/learn"><Tab label="Learn" value="4"/></Link>
                    
 
         <header>
@@ -29,21 +29,21 @@ function Nav({user, setUser}) {
                                 style={{
                                     display:"flex",
                                     margin: "20px",
-                                    backgroundColor: "#82f7ff",
+                                    backgroundcolor: "#82f7ff",
                                     borderRadius:"5px"
 
                                     
                                 }}>
                                 <Typography variant="h6"
                                     sx={{
-                                        marginRight: "10px",
-                                        paddingLeft: "10px"
+                                        marginright: "10px",
+                                        paddingleft: "10px"
                                     }}
                                 >Welcome, {user.username}!</Typography>
                                  <Button 
                                  variant="contained"
                                  color="secondary"
-                                 marginLeft="10"
+                                 marginleft="10"
                                  onClick={handleLogout}>
                                     LOGOUT
                                 </Button>
@@ -65,11 +65,11 @@ function Nav({user, setUser}) {
         <div>
             <Toolbar>
                 <Tabs>
-                    <Link to="/"><Tab label="Home"></Tab></Link>
-                    <Link to="/collections"><Tab label="Collections"></Tab></Link>
-                    <Link to="/marketplace"><Tab label="Marketplace"></Tab></Link>
-                    <Link to="/wallet"><Tab label="Wallet"></Tab></Link>
-                    <Link to="/teach"><Tab label="Teach"></Tab></Link>
+                    <Link to="/"><Tab label="Home" value="0"/></Link>
+                    <Link to="/collections"><Tab label="Collections" value="1"/></Link>
+                    <Link to="/marketplace"><Tab label="Marketplace"value="2"/></Link>
+                    <Link to="/wallet"><Tab label="Wallet" value="3"/></Link>
+                    <Link to="/teach"><Tab label="Teach" value="4"/></Link>
 
                     <header>
                             { user ? (
@@ -91,7 +91,7 @@ function Nav({user, setUser}) {
                                  <Button 
                                  variant="contained"
                                  color="secondary"
-                                 marginLeft="10"
+                                 marginleft="10"
                                  onClick={handleLogout}>
                                     LOGOUT
                                 </Button>

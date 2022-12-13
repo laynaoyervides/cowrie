@@ -10,6 +10,7 @@ import Marketplace from './Marketplace'
 import Wallet from './Wallet'
 import Learn from './Learn'
 import Teach from './Teach'
+import ViewArtwork from "./ViewArtwork"
 
 
 function App() {
@@ -41,6 +42,7 @@ if (user.admin) return (
       <Route path="/marketplace" element={<Marketplace user={user}/>}></Route>
       <Route path="/wallet" element={<Wallet user={user}/>}></Route>
       <Route path="/teach" element={<Teach user={user}/>}></Route>
+      <Route exact path="/artworks/:id" element={<ViewArtwork />}></Route>
     </Routes>
   </div>
 );
