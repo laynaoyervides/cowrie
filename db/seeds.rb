@@ -191,11 +191,17 @@ coll_wv=Collection.create (
 
 #create some artworks for a collection
 rr = Artwork.create! ({title:"Red River", keywords:"nature, red, river",collection_id: coll_iz.id, img_url: "https://res.cloudinary.com/dhgw364gk/image/upload/v1669930323/red_river_pgsljz.jpg"})
-bb = Artwork.create ({title:"Blue Bayou", keywords:"nature, blue, bayou",collection_id: coll_iz.id, img_url:"https://res.cloudinary.com/dhgw364gk/image/upload/v1669930323/blue_bayou_ewduvp.jpg"})
-gg = Artwork.create ({title:"Green Grass", keywords:"nature, green, grass", collection_id: coll_iz.id, img_url:"https://res.cloudinary.com/dhgw364gk/image/upload/v1669930323/green_grass_yzrcrh.jpg"})
-cc = Artwork.create ({title:"Cerulean Cloud", keywords:"nature, cloud, blue", collection_id: coll_iz.id, img_url:"https://res.cloudinary.com/dhgw364gk/image/upload/v1669930323/cerulean_cloud_vturw1.jpg"})
-pp = Artwork.create ({title:"Pink Pelicans", keywords:"nature, pink, pelicans", collection_id: coll_iz.id, img_url:"https://res.cloudinary.com/dhgw364gk/image/upload/v1669930323/pink_pelicans_d9fg24.jpg"})
+bb = Artwork.create! ({title:"Blue Bayou", keywords:"nature, blue, bayou",collection_id: coll_iz.id, img_url:"https://res.cloudinary.com/dhgw364gk/image/upload/v1669930323/blue_bayou_ewduvp.jpg"})
+gg = Artwork.create! ({title:"Green Grass", keywords:"nature, green, grass", collection_id: coll_iz.id, img_url:"https://res.cloudinary.com/dhgw364gk/image/upload/v1669930323/green_grass_yzrcrh.jpg"})
+cc = Artwork.create! ({title:"Cerulean Cloud", keywords:"nature, cloud, blue", collection_id: coll_iz.id, img_url:"https://res.cloudinary.com/dhgw364gk/image/upload/v1669930323/cerulean_cloud_vturw1.jpg"})
+pp = Artwork.create! ({title:"Pink Pelicans", keywords:"nature, pink, pelicans", collection_id: coll_iz.id, img_url:"https://res.cloudinary.com/dhgw364gk/image/upload/v1669930323/pink_pelicans_d9fg24.jpg"})
 
+Artwork.create! ({
+    title:"Show Sample",
+    keywords:"shoe, white, blue, activity, exercise",
+    collection_id: coll_lo.id ,
+    img_url:"https://res.cloudinary.com/dhgw364gk/image/upload/v1669849771/cld-sample-5.jpg"
+})
 
 #set inital cowrie volume
 #cc = Cowry.create! (

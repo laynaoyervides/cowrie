@@ -4,13 +4,13 @@ class UsersController < ApplicationController
      # GET /users
      def index
        @users = User.all
-       render json: @users, include: ['collections', 'investments', 'purchases']
+       render json: @users, include: ['collections', 'collections.artworks', 'investments', 'purchases']
      end
    
   #get '/me'
     def show
       if current_user
-          render json: current_user , include: ['collections']
+          render json: current_user , include: ['collections', 'collections.artworks']
       else
           render json: { error: 'No active session'}, status: :unauthorized
       end

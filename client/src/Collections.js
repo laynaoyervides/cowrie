@@ -1,20 +1,25 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Box, Typography}from '@mui/material'
 import CollectionDetail from './CollectionDetail';
 import NewCollection from './NewCollection';
 
 function Collections({user}) {
     const [collections, setCollections] = useState([])
-
-    fetch("/me")
-    .then((r) => r.json())
+console.log('collections', user.collections)
+    
+useEffect(()=> {
+    setCollections(user.collections);
+}, []);
+  //useEffect( ()=>  {
+  //  fetch("/me")
+/*     .then((r) => r.json())
     .then((userArray)=> setCollections(userArray.collections))
+}, []) */
 
      // Add a new Collection - CREATE - 
      const addNewCollection= (collection) => {
         setCollections([...collections, collection]);
-    }
-
+     }
     //handle the edit - UPDATE -
     function handleUpdateCollection(updatedCollection){
         const updatedCollections = collections.map((collection) => {
@@ -62,7 +67,7 @@ function Collections({user}) {
                              collection_img = {collection.collection_img}
                               deleteCollection={deleteCollection}
                                 onUpdateCollection={handleUpdateCollection}
-                                collection ={ collection}
+                                collection ={collection}
                         />
                      ))
                  }

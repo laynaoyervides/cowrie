@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import {Box, Card, Avatar, Button, Typography} from '@mui/material'
+import React from 'react';
+import {Box, Card, Avatar, Typography} from '@mui/material'
 
 function Home({user}) {
     const {bio, image_url} = user 

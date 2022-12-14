@@ -42,7 +42,7 @@ if (user.admin) return (
       <Route path="/marketplace" element={<Marketplace user={user}/>}></Route>
       <Route path="/wallet" element={<Wallet user={user}/>}></Route>
       <Route path="/teach" element={<Teach user={user}/>}></Route>
-      <Route exact path="/artworks/:id" element={<ViewArtwork />}></Route>
+      <Route exact path="/artworks/:id" element={<ViewArtwork  />}></Route>
     </Routes>
   </div>
 );

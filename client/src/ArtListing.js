@@ -21,7 +21,9 @@ function ArtListing({id, title, date_created, list_price, owner, img_url, for_sa
 
         </CardMedia>
         <Typography>{date_created}, {for_sale}, {keywords}</Typography>
-            <Link to={{pathname: `/artworks/${id}`}}>
+            <Link to={{
+                pathname: `/artworks/${id}`, 
+                                }}>
             <Button><Typography>See More</Typography></Button>
             </Link>
             <br></br>
