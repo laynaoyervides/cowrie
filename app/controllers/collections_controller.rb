@@ -18,6 +18,7 @@ class CollectionsController < ApplicationController
   
     # POST /collections
     def create
+      
       collection = Collection.create!(collection_params)
       render json: collection, status: :created
     end
@@ -42,7 +43,7 @@ class CollectionsController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def collection_params
-        params.permit(:title, :description, :collection_img)
+        params.permit(:title, :description, :collection_img, :user_id)
       end
 
       def render_unprocessable_entity_response(invalid)
