@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_03_055850) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_17_172817) do
   create_table "artworks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -22,6 +22,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_055850) do
     t.string "img_url"
     t.boolean "for_sale", default: false
     t.string "keywords"
+    t.string "img_thumb"
+    t.string "cloudinary_public_id"
   end
 
   create_table "collections", force: :cascade do |t|
@@ -31,6 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_055850) do
     t.string "description"
     t.integer "user_id"
     t.string "collection_img"
+    t.string "cloudinary_public_id"
   end
 
   create_table "cowries", force: :cascade do |t|
@@ -56,6 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_055850) do
     t.datetime "updated_at", null: false
     t.integer "token_id"
     t.string "image"
+    t.string "cloudinary_public_id"
   end
 
   create_table "purchases", force: :cascade do |t|
@@ -67,6 +71,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_055850) do
     t.integer "royalty_percentage", default: 10
     t.string "image_thumbnail"
     t.string "description"
+    t.string "cloudinary_public_id"
   end
 
   create_table "tutorials", force: :cascade do |t|
@@ -77,6 +82,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_055850) do
     t.string "video_url"
     t.string "description"
     t.integer "user_id"
+    t.string "cloudinary_public_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -88,6 +94,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_055850) do
     t.string "bio"
     t.string "email"
     t.boolean "admin", default: false
+    t.string "img_thumb"
+    t.string "cloudinary_public_id"
   end
 
 end

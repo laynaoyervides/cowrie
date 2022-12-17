@@ -45,7 +45,7 @@ class ArtworksController < ApplicationController
         end
 
         def artwork_params
-        params.permit(:id, :title, :date_created, :list_price, :owner, :img_url, :for_sale, :keywords)
+        params.permit(:id, :title, :date_created, :list_price, :owner, :img_url, :for_sale, :keywords, :img_thumb, :owner)
         end
 
         def render_unprocessable_entity_response(invalid)
