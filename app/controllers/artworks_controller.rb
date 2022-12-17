@@ -14,6 +14,7 @@ class ArtworksController < ApplicationController
         end
       
         def search
+          
           @artworks = Artwork.where('keywords LIKE ?', '%' + params[:q]+ '%')
           render json: @artworks, status: :ok
         end

@@ -18,7 +18,6 @@ class CollectionsController < ApplicationController
   
     # POST /collections
     def create
-      
       collection = Collection.create!(collection_params)
       render json: collection, status: :created
     end

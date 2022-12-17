@@ -1,24 +1,48 @@
-import { Typography, Box } from '@mui/material';
+import { Typography, Box, Button, InputLabel } from '@mui/material';
 import React, {useState, useEffect} from 'react';
 import ArtListing from './ArtListing';
-import SearchArtworks from './SearchArtworks';
+//import SearchArtworks from './SearchArtworks';
 
 function Marketplace({user}) {
     const [artworks, setArtworks] = useState([])
+    const [q, setQ] =useState("")
+
 
     useEffect (
         () => {
     fetch("/artworks")
     .then((r) => r.json())
     .then((artworks)=> setArtworks(artworks))
-        })
+        }, [])
     
-    
+        function searchArtworks (e) {
+            e.preventDefault();
+        
+            fetch(`/searchartworks?q=${q}`)
+            .then((r) => r.json())
+            .then((results) => setArtworks(results))
+            
+           }
     return (
         <div>           
             <Typography variant='h1' sx={{textAlign:'center'}}>Marketplace</Typography>
-            <SearchArtworks />
+            <Box>
+            
+            <form
+            onSubmit = {searchArtworks}
+            sx={{marginLeft:5, marginRight: 5}}>
 
+                <InputLabel>Search Artworks by keyword</InputLabel>
+                <input
+                fullWidth="true"
+                value={q}
+                onChange= {(e) => setQ(e.target.value)}
+                            ></input>
+            <Button type="submit">SEARCH</Button>
+            </form>
+            <Typography>Search Results for {q} </Typography>
+
+            </Box>
             <Box
             display="grid" 
             flexDirection={'row'}

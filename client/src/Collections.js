@@ -56,7 +56,6 @@ useEffect(()=> {
             <Box
                 display="grid" 
                 flexDirection={'row'}
-                gridTemplateColumns= 'repeat(3, 1fr)' 
                 
                 >
                      {collections.map((collection) => (

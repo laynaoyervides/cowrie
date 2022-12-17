@@ -6,6 +6,7 @@ function NewCollection({addNewCollection, user}) {
    const [description, setDescription]=useState("")
    const [image, setImage]=useState("")
 
+   const [errors, setErrors] = useState([]);
 
 
    const configObj = {
@@ -29,9 +30,13 @@ function NewCollection({addNewCollection, user}) {
 
     // Make a POST request to create a new instructor
     fetch("/collections", configObj)
-      .then((resp) => resp.json())
-      .then((newCollection) => {
-        addNewCollection(newCollection);
+      .then((resp) => {
+      if (resp.ok){
+          resp.json().then((newCollection)=> addNewCollection(newCollection))
+      } else {
+        resp.json().then((errorData)=> setErrors(errorData.errors))
+      }
+      
       });
   };
    
