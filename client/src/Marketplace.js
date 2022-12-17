@@ -23,16 +23,44 @@ function Marketplace({user}) {
             .then((results) => setArtworks(results))
             
            }
+if (artworks.length === 0){
+    return (
+        <div>           
+        <Typography variant='h1' sx={{textAlign:'center'}}>Marketplace</Typography>
+        <Box            
+        sx={{marginLeft:10}}                        >
+
+        
+        <form
+        onSubmit = {searchArtworks}
+        sx={{marginLeft:5, marginRight: 5}}>
+
+            <InputLabel>Search Artworks by keyword</InputLabel>
+            <input
+            fullWidth="true"
+            value={q}
+            onChange= {(e) => setQ(e.target.value)}
+                        ></input>
+        <Button type="submit">SEARCH</Button>
+        </form>
+        <Typography variant='h3'>Search Results for {q} </Typography>
+        <Typography variant="h3">No match for "{q}"</Typography>
+
+        </Box>
+        </div>
+    )
+}
     return (
         <div>           
             <Typography variant='h1' sx={{textAlign:'center'}}>Marketplace</Typography>
-            <Box>
+            <Box
+            sx={{marginLeft:10}}                        >
             
             <form
             onSubmit = {searchArtworks}
             sx={{marginLeft:5, marginRight: 5}}>
 
-                <InputLabel>Search Artworks by keyword</InputLabel>
+                <InputLabel><Typography variant='h5'>Search Artworks by keyword</Typography></InputLabel>
                 <input
                 fullWidth="true"
                 value={q}
@@ -40,7 +68,7 @@ function Marketplace({user}) {
                             ></input>
             <Button type="submit">SEARCH</Button>
             </form>
-            <Typography>Search Results for {q} </Typography>
+        {/* <Typography variant="h4">Search Results for {q} </Typography> */}
 
             </Box>
             <Box
