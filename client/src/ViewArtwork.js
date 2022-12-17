@@ -9,7 +9,7 @@ function ViewArtwork() {
 
     useEffect ( () => {
 
-        fetch(`/artworks/${id}`)
+        fetch(`/api/artworks/${id}`)
         .then((r) => r.json())
         .then((artwork) => setArtwork(artwork))
         

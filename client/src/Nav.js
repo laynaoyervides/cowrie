@@ -4,7 +4,7 @@ import {Toolbar, Typography, Tabs, Tab, Button} from '@mui/material'
 
 function Nav({user, setUser}) {
     function handleLogout() {
-        fetch("/logout", { method: "DELETE" }).then((r) => {
+        fetch("/api/logout", { method: "DELETE" }).then((r) => {
           if (r.ok) {
             setUser(null);
           }

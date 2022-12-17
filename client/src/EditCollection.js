@@ -14,7 +14,7 @@ function EditCollection({collection, onUpdateCollection}) {
     function handleEditForm(e) {
         e.preventDefault();
     //PATCH single collection 
-    fetch(`/collections/${id}`, {
+    fetch(`/api/collections/${id}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",

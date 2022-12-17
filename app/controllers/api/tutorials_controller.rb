@@ -1,4 +1,4 @@
-class TutorialsController < ApplicationController
+class Api::TutorialsController < ApplicationController
   before_action :find_tutorial, only: [:show, :update, :destroy]
   before_action :is_creator?, only: [:update, :destroy]
   

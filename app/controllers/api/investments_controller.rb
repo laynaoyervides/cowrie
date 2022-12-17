@@ -1,4 +1,4 @@
-class InvestmentsController < ApplicationController
+class Api::InvestmentsController < ApplicationController
   before_action :confirm_authentication  
   before_action :find_investment, only: [:show, :update, :destroy]
   

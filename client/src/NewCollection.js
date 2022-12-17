@@ -29,7 +29,7 @@ function NewCollection({addNewCollection, user}) {
     e.preventDefault();
 
     // Make a POST request to create a new instructor
-    fetch("/collections", configObj)
+    fetch("/api/collections", configObj)
       .then((resp) => {
       if (resp.ok){
           resp.json().then((newCollection)=> addNewCollection(newCollection))

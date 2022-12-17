@@ -1,4 +1,4 @@
-class PurchasesController < ApplicationController
+class Api::PurchasesController < ApplicationController
     before_action :find_purchase, only: [:show, :update, :destroy]
 
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response

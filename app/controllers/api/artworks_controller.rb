@@ -1,4 +1,4 @@
-class ArtworksController < ApplicationController
+class Api::ArtworksController < ApplicationController
   before_action :find_artwork, only: [:show, :update, :destroy]
   before_action :confirm_authentication  
 

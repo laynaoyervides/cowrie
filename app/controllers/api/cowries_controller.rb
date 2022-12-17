@@ -1,41 +1,44 @@
-class NftsController < ApplicationController
-        before_action :find_nft, only: [:show, :update, :destroy]
-        before_action :authorize_user, only: [:update, :destroy]
-        
+class Api::CowriesController < ApplicationController
+        before_action :find_cowry, only: [:show, :update, :destroy]
+        before_action :confirm_authentication  
+        before_action :authorize_user, only: [:index, :create, :destroy]
+
+    
         rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
         rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
     
     
         def index
-            render json: Nft.all, status: :ok
+            cowries = Cowry.all
+            render json: cowries, status: :ok
         end
     
         def show
-            render json: @nft, status: :ok
+            render json: @cowry, status: :ok
         end
     
         def create
-            nft = Nft.create!(nft_params)
-            render json: nft, status: :created
+            cowry = Cowry.create!(cowry_params)
+            render json: cowry, status: :created
         end
     
         def update
-            @nft.update!(nft_params)
-            render json: @nft, status: :accepted
+            @cowry.update!(cowry_params)
+            render json: @cowry, status: :accepted
         end
     
         def destroy
-            @nft.destroy
+            @cowry.destroy
             head :no_content
         end
     private
         
-        def nft_params
-            params.permit(:token_id, :image)
+        def cowry_params
+            params.permit(:cowry_volume, :current_price)
         end
     
-        def find_nft
-        @nft = Nft.find(params[:id])
+        def find_cowry
+        @nft = Cowry.find(params[:id])
         end
     
         def authorize_user

@@ -34,7 +34,7 @@ useEffect(()=> {
     }
     
     function deleteCollection (id) {
-        fetch(`/collections/${id}` , {
+        fetch(`/api/collections/${id}` , {
             method: "DELETE",
         })
         .then((r)=> {

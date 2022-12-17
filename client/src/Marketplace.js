@@ -10,7 +10,7 @@ function Marketplace({user}) {
 
     useEffect (
         () => {
-    fetch("/artworks")
+    fetch("/api/artworks")
     .then((r) => r.json())
     .then((artworks)=> setArtworks(artworks))
         }, [])
@@ -18,7 +18,7 @@ function Marketplace({user}) {
         function searchArtworks (e) {
             e.preventDefault();
         
-            fetch(`/searchartworks?q=${q}`)
+            fetch(`/api/searchartworks?q=${q}`)
             .then((r) => r.json())
             .then((results) => setArtworks(results))
             

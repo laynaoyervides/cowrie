@@ -8,7 +8,7 @@ import PurchaseDetails from './PurchaseDetails';
 function Purchases({user}) {
     const[purchases, setPurchases] =useState([])
 
-    fetch('/me')
+    fetch('/api/me')
     .then ((r) => r.json())
     .then((array) => setPurchases(array.purchases))
 

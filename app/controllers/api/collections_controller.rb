@@ -1,4 +1,4 @@
-class CollectionsController < ApplicationController
+class Api::CollectionsController < ApplicationController
     before_action :find_collection, only: [:show, :update, :destroy]
     before_action :confirm_authentication  
 
