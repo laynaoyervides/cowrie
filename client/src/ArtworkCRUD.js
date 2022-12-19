@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, CardMedia, CardContent, CardHeader, Typography} from '@mui/material'
+import {Card, CardMedia, CardContent, CardHeader, Typography, Button} from '@mui/material'
 
 function ArtworkCRUD({title, description, img_url, img_thumb, keywords, owner, list_price, for_sale}) {
     return (
@@ -29,6 +29,7 @@ function ArtworkCRUD({title, description, img_url, img_thumb, keywords, owner, l
           "Not for Sale" )
              }
             </CardContent>
+            <Button>Edit Artwork Details</Button>
             </Card>  
         </>
     );
