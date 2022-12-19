@@ -1,7 +1,7 @@
 import React from 'react';
 import {Typography, Box} from '@mui/material'
-import Purchases from './Purchases';
-import Investments from './Investments';
+//import Purchases from './Purchases';
+//import Investments from './Investments';
 
 
 
@@ -17,12 +17,12 @@ function Wallet({user}) {
 
             <Box>
                 <Typography variant='h3' sx={{textAlign: 'center'}}>PURCHASES</Typography>
-                <Purchases user={user}/>
+                {/* <Purchases user={user}/> */}
                
             </Box>
             <Box>
                 <Typography variant='h3'sx={{textAlign: 'center'}}>INVESTMENTS</Typography>
-                <Investments user={user}/>
+                {/* <Investments user={user}/> */}
               
             </Box>
             
