@@ -5,7 +5,12 @@ function NewPurchase({artwork, user}) {
     const {img_url, id, title, list_price} = artwork
     const[description, setDescription]= useState("")
 
+    const[nft, setNft] = useState([])
+
     const [errors, setErrors] = useState([]);
+    const [nftErrors, setNftErrors] = useState([])
+
+    const [tokenId, setTokenId] = useState()
 
 
     console.log (artwork)
@@ -22,7 +27,7 @@ function NewPurchase({artwork, user}) {
                 price: list_price,
                 image_thumbnail: img_url,
                 description: description,
-                nft_id: 1,
+                nft_id: nft.id,
                }
         ),
       };
@@ -41,7 +46,41 @@ function NewPurchase({artwork, user}) {
           
           });
       };
+
+      const configNft = {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+            {
+                token_id: tokenId,
+                image: img_url,
+               }
+        ),
+      };
     
+      const handleGenerateNft = (e) => {
+        e.preventDefault();
+        var MIN = 1, MAX = 30000;
+
+        setTokenId(
+            Math.floor(Math.random() * (MAX - MIN + 1)) + MIN,
+            )
+            console.log (tokenId)
+        fetch("/api/nfts", configNft)
+        .then((resp) => {
+            if (resp.ok){
+                resp.json().then((newNft)=> {
+                    setNft(newNft)
+                })
+            } else {
+              resp.json().then((errorData)=> setNftErrors(errorData.errors))
+            }
+            
+            });
+      }
 
     return (
         <div>
@@ -64,7 +103,10 @@ function NewPurchase({artwork, user}) {
                         onChange={(e)=> setDescription(e.target.value)}
                     />
                     <br></br>
-                    
+
+                        <button onClick={handleGenerateNft}>Generate NFT</button>
+                        <Typography>{nftErrors}</Typography>
+
                     <button type="submit">Purchase Artwork</button>
 
                     <Typography>{errors}</Typography>
