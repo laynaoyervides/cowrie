@@ -38,11 +38,18 @@ console.log(artwork);
                         <br></br>
                         Keywords: {artwork.keywords}
                         <br></br>
-                        list price: {artwork.list_price}
-
+                        { artwork.for_sale ?  (
+          `List Price: ${artwork.list_price}`
+             ) : (
+          "Not for Sale" )
+             }
                     </Typography>
                                  <br></br>
+                { artwork.for_sale ?  (
                     <Button>PURCHASE</Button>
+                    ) : (
+          "Check back later to see when this is listed" )
+             }
             </Box>
             
         
