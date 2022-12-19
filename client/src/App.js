@@ -13,7 +13,6 @@ import Teach from './Teach'
 import ViewArtwork from "./ViewArtwork"
 import ViewCollection from "./ViewCollection"
 import CollectionArtworks from "./CollectionArtworks"
-import TutorialDetail from "./TutorialDetail"
 import ViewTutorial from "./ViewTutorial"
 import ViewArtworkDetails from "./ViewArtworkDetails"
 
@@ -33,6 +32,11 @@ useEffect(()=>{
 }, []);
 
 
+function handleUpdateUser(updatedUser){
+        
+  setUser(updatedUser);
+}
+
 
 if (!user) return(
 <div> 
@@ -44,7 +48,7 @@ if (user.admin) return (
   <div>
     <Nav user={user} setUser={setUser}/>
     <Routes>
-      <Route exact path="/" element={<Home user={user} setUser={setUser}/>}></Route>
+      <Route exact path="/" element={<Home user={user} setUser={setUser} onUpdateUser={handleUpdateUser}/>}></Route>
       <Route path="/collections" element={<Collections user={user}/>}></Route>
       <Route path="/marketplace" element={<Marketplace user={user}/>}></Route>
       <Route path="/wallet" element={<Wallet user={user}/>}></Route>
@@ -63,7 +67,7 @@ if (user.admin) return (
     <div>
       <Nav user={user} setUser={setUser}/>
       <Routes>
-        <Route exact path="/" element={<Home user={user} setUser={setUser}/>}></Route>
+        <Route exact path="/" element={<Home user={user} setUser={setUser} onUpdateUser={handleUpdateUser}/>}></Route>
         <Route path="/collections" element={<Collections user={user}/>}></Route>
         <Route path="/marketplace" element={<Marketplace user={user}/>}></Route>
         <Route path="/wallet" element={<Wallet user={user}/>}></Route>

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card, CardMedia, Box, Typography, CardContent, Button} from "@mui/material"
 import {Link} from 'react-router-dom'
+
 function CollectionIndex({collection, deleteCollection}) {
     const{id, title, description, collection_img}= collection
     

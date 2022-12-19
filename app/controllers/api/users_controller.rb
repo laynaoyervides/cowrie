@@ -30,6 +30,7 @@ class Api::UsersController < ApplicationController
 
 
     def update
+      
         if current_user.update(update_user_params)
             render json: current_user, status: :ok
           else 
@@ -45,7 +46,7 @@ class Api::UsersController < ApplicationController
     end
 
     def update_user_params
-        params.permit(:image_url, :bio, :img_thumb, :cloudinary_public_id)
+        params.permit(:image_url, :bio, :img_thumb, :cloudinary_public_id, :email)
       end
 
 end
