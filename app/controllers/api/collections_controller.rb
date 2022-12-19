@@ -42,7 +42,7 @@ class Api::CollectionsController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def collection_params
-        params.permit(:title, :description, :collection_img, :user_id)
+        params.permit(:id, :title, :description, :collection_img, :user_id, :cloudinary_public_id)
       end
 
       def render_unprocessable_entity_response(invalid)
