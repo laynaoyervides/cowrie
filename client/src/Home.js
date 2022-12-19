@@ -1,10 +1,12 @@
-import React from 'react';
-import {Box, Card, Avatar, Typography} from '@mui/material'
+import React, {useState} from 'react';
+import {Box, Card, Avatar, Typography, Button} from '@mui/material'
 import CloudinaryUpload from './CloudinaryUpload';
+import EditUserInfo from './EditUserInfo';
 
-function Home({user, setUser}) {
-    const {bio, image_url} = user 
+function Home({user, setUser, onUpdateUser}) {
+    const {bio, email, image_url, username} = user 
 
+    const [isEditing, setIsEditing]= useState(false);
 
     const handleUpload = (result) => {
         const body = {
@@ -26,6 +28,11 @@ function Home({user, setUser}) {
           })
       }
 
+  
+      const handleUserUpdate = (updatedUser) => {
+        setIsEditing(false);
+        onUpdateUser(updatedUser);
+      };
  
 
     return (
@@ -50,7 +57,18 @@ function Home({user, setUser}) {
                     <p>{bio}</p>
                 </Card>
                 <Card>
-                    <Typography>EDIT ACCOUNT INFO</Typography>
+                   <Typography>ACCOUNT INFO</Typography>
+                   {isEditing ? (
+                      <EditUserInfo handleUserUpdate={handleUserUpdate} user={user} setUser={setUser}/>
+
+                   ):(
+                    <>
+                    <Typography>Username: {username}</Typography>
+                    <Typography> Email: {email}</Typography> 
+                     </>
+                   )}
+                <Button onClick={() => setIsEditing((isEditing) => !isEditing)}><h5>EDIT</h5></Button>
+
                 </Card>
 
             </Box>
