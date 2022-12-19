@@ -11,6 +11,8 @@ import Wallet from './Wallet'
 import Learn from './Learn'
 import Teach from './Teach'
 import ViewArtwork from "./ViewArtwork"
+import ViewCollection from "./ViewCollection"
+import CollectionArtworks from "./CollectionArtworks"
 
 
 function App() {
@@ -37,12 +39,15 @@ if (user.admin) return (
   <div>
     <Nav user={user} setUser={setUser}/>
     <Routes>
-      <Route exact path="/" element={<Home user={user}/>}></Route>
+      <Route exact path="/" element={<Home user={user} setUser={setUser}/>}></Route>
       <Route path="/collections" element={<Collections user={user}/>}></Route>
       <Route path="/marketplace" element={<Marketplace user={user}/>}></Route>
       <Route path="/wallet" element={<Wallet user={user}/>}></Route>
       <Route path="/teach" element={<Teach user={user}/>}></Route>
       <Route exact path="/artworks/:id" element={<ViewArtwork  />}></Route>
+      <Route exact path="/collections/:id" element={<ViewCollection  />}></Route>
+      <Route exact path="/viewartworks/:id" element={<CollectionArtworks/>}></Route>
+
     </Routes>
   </div>
 );
@@ -51,11 +56,16 @@ if (user.admin) return (
     <div>
       <Nav user={user} setUser={setUser}/>
       <Routes>
-        <Route exact path="/" element={<Home user={user}/>}></Route>
+        <Route exact path="/" element={<Home user={user} setUser={setUser}/>}></Route>
         <Route path="/collections" element={<Collections user={user}/>}></Route>
         <Route path="/marketplace" element={<Marketplace user={user}/>}></Route>
         <Route path="/wallet" element={<Wallet user={user}/>}></Route>
         <Route path="/learn" element={<Learn user={user}/>}></Route>
+        <Route exact path="/artworks/:id" element={<ViewArtwork  />}></Route>
+        <Route exact path="/collections/:id" element={<ViewCollection  />}></Route>
+        <Route exact path="/viewartworks/:id" element={<CollectionArtworks/>}></Route>
+
+
       </Routes>
     </div>
   );
