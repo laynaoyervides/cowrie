@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-    skip_before_action :confirm_authentication, only: :create
+    skip_before_action :confirm_authentication, except: [:update]
    
      # GET /users
      def index
@@ -29,11 +29,24 @@ class Api::UsersController < ApplicationController
     end
 
 
+    def update
+        if current_user.update(update_user_params)
+            render json: current_user, status: :ok
+          else 
+            render json: user.errors, status: :unprocessable_entity
+          end
+    end
+
+
      private
    
      def user_params
          params.permit(:username, :email, :password, :img_thumb, :image_url, :bio)
     end
+
+    def update_user_params
+        params.permit(:image_url, :bio, :img_thumb, :cloudinary_public_id)
+      end
 
 end
    
