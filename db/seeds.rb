@@ -196,7 +196,7 @@ gg = Artwork.create! ({title:"Green Grass", keywords:"nature, green, grass", col
 cc = Artwork.create! ({title:"Cerulean Cloud", keywords:"nature, cloud, blue", collection_id: coll_iz.id, img_url:"https://res.cloudinary.com/dhgw364gk/image/upload/v1669930323/cerulean_cloud_vturw1.jpg"})
 pp = Artwork.create! ({title:"Pink Pelicans", keywords:"nature, pink, pelicans", collection_id: coll_iz.id, img_url:"https://res.cloudinary.com/dhgw364gk/image/upload/v1669930323/pink_pelicans_d9fg24.jpg"})
 
-Artwork.create! ({
+Artwork.create ({
     title:"Show Sample",
     keywords:"shoe, white, blue, activity, exercise",
     collection_id: coll_lo.id ,
