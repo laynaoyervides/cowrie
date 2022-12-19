@@ -53,7 +53,7 @@ if (user.admin) return (
       <Route path="/marketplace" element={<Marketplace user={user}/>}></Route>
       <Route path="/wallet" element={<Wallet user={user}/>}></Route>
       <Route path="/teach" element={<Teach user={user}/>}></Route>
-      <Route exact path="/artworks/:id" element={<ViewArtwork  />}></Route>
+      <Route exact path="/artworks/:id" element={<ViewArtwork user={user} />}></Route>
       <Route exact path="/collections/:id" element={<ViewCollection  />}></Route>
       <Route exact path="/viewartworks/:id" element={<CollectionArtworks/>}></Route>
       <Route exact path="/tutorials/:id" element={<ViewTutorial />}></Route>
@@ -72,7 +72,7 @@ if (user.admin) return (
         <Route path="/marketplace" element={<Marketplace user={user}/>}></Route>
         <Route path="/wallet" element={<Wallet user={user}/>}></Route>
         <Route path="/learn" element={<Learn user={user}/>}></Route>
-        <Route exact path="/artworks/:id" element={<ViewArtwork  />}></Route>
+        <Route exact path="/artworks/:id" element={<ViewArtwork user={user} />}></Route>
         <Route exact path="/collections/:id" element={<ViewCollection  />}></Route>
         <Route exact path="/viewartworks/:id" element={<CollectionArtworks/>}></Route>
         <Route exact path="/tutorials/:id" element={<ViewTutorial />}></Route>

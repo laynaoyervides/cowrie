@@ -1,11 +1,14 @@
 import { Typography, Box, Paper, Button } from '@mui/material';
 import React, { useState , useEffect} from 'react';
 import { useParams } from 'react-router-dom';
+import NewPurchase from './NewPurchase';
 //filter through artworks in state by id to match the route id
 //
-function ViewArtwork() {
+function ViewArtwork({user}) {
     const {id} = useParams();
     const [artwork, setArtwork]= useState([])
+
+    const[isClicked, setIsClicked] = useState(false)
 
     useEffect ( () => {
 
@@ -17,6 +20,8 @@ function ViewArtwork() {
 
 console.log(id);
 console.log(artwork);
+
+
     return (
         <>
              <Box>  
@@ -38,18 +43,30 @@ console.log(artwork);
                         <br></br>
                         Keywords: {artwork.keywords}
                         <br></br>
-                        { artwork.for_sale ?  (
-          `List Price: ${artwork.list_price}`
-             ) : (
-          "Not for Sale" )
+            { artwork.for_sale ?  (
+                `List Price: ${artwork.list_price}`
+                    ) : (
+                "Not for Sale" )
              }
                     </Typography>
                                  <br></br>
                 { artwork.for_sale ?  (
-                    <Button>PURCHASE</Button>
+                    <Button id="purchase_button" onClick={
+                        () => setIsClicked((isClicked) => !isClicked)
+                    } >PURCHASE</Button>
                     ) : (
           "Check back later to see when this is listed" )
              }
+             <> { isClicked ? (
+                <NewPurchase artwork={artwork} user={user}/>
+             ):
+             ( 
+                <></>
+             )
+
+             }
+             </>
+             
             </Box>
             
         

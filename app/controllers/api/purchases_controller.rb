@@ -30,7 +30,7 @@ class Api::PurchasesController < ApplicationController
 private
     
     def purchase_params
-        params.permit(:price, :royalty_percentage, :image_thumbnail, :description)
+        params.permit(:user_id, :nft_id, :price, :royalty_percentage, :image_thumbnail, :description)
     end
 
     def find_purchase
