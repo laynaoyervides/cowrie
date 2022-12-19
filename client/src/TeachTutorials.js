@@ -1,8 +1,9 @@
 import React from 'react';
 import {Paper, Typography, Button} from '@mui/material'
+import {Link} from 'react-router-dom'
 
 
-function TeachTutorials({title, topic, description, video_url, cloudinary_public_id, deleteTutorial}) {
+function TeachTutorials({id, title, topic, description, video_url, cloudinary_public_id, deleteTutorial}) {
     return (
         <div>
               <>
@@ -14,7 +15,10 @@ function TeachTutorials({title, topic, description, video_url, cloudinary_public
                 <source src={video_url} type="video/mp4"/>
             </video>
             <Typography>{description }</Typography>
-            <Button>Edit Tutorial Details</Button>
+            <Link to={{pathname: `/tutorials/${id}`,}}     >     
+                <Button>Edit Tutorial Details</Button>
+            </Link>
+            
             <br>
             </br>
             <Button 

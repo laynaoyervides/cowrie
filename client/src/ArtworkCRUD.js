@@ -17,6 +17,7 @@ function ArtworkCRUD({title, description, img_url, img_thumb, keywords, owner, l
             height="200"
             >
             </CardMedia>
+            <Button>Upload New Artwork Image</Button>
           
             <CardContent>
             <Typography>Keywords: {keywords}</Typography>

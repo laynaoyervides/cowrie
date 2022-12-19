@@ -34,7 +34,7 @@ function EditCollection({collection, onUpdateCollection}) {
             value={updatedTitle}
             onChange={(e) => setUpdatedTitle(e.target.value)}
             />
-            <label htmlFor="period">Description</label>
+            <label htmlFor="description">Description</label>
             <input
                 id="description"
                 type="text"

@@ -31,12 +31,14 @@ function deleteTutorial (id) {
         <div>
             {tutorials.map((tutorial)=>
             <TeachTutorials 
+                key={tutorial.id}
                 title={tutorial.title}
                 topic={tutorial.topic}
                 description={tutorial.description}
                 video_url={tutorial.video_url}
                 cloudinary_public_id={tutorial.cloudinary_public_id}
                 deleteTutorial={deleteTutorial}
+                id={tutorial.id}
             />
             )}
         </div>

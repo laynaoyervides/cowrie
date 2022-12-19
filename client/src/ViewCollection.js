@@ -1,4 +1,4 @@
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import React, { useState , useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import CollectionDetail from './CollectionDetail';
@@ -36,7 +36,6 @@ function ViewCollection() {
                                 collection ={collection}
                                 setCollection={setCollection}
                         />    
-                <Button>View Artworks</Button>        
                 </Box>
         </div>
     );

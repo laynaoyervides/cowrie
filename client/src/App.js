@@ -13,6 +13,8 @@ import Teach from './Teach'
 import ViewArtwork from "./ViewArtwork"
 import ViewCollection from "./ViewCollection"
 import CollectionArtworks from "./CollectionArtworks"
+import TutorialDetail from "./TutorialDetail"
+import ViewTutorial from "./ViewTutorial"
 
 
 function App() {
@@ -28,6 +30,8 @@ useEffect(()=>{
     }
   });
 }, []);
+
+
 
 if (!user) return(
 <div> 
@@ -47,7 +51,7 @@ if (user.admin) return (
       <Route exact path="/artworks/:id" element={<ViewArtwork  />}></Route>
       <Route exact path="/collections/:id" element={<ViewCollection  />}></Route>
       <Route exact path="/viewartworks/:id" element={<CollectionArtworks/>}></Route>
-
+      <Route exact path="/tutorials/:id" element={<ViewTutorial />}></Route>
     </Routes>
   </div>
 );
@@ -64,6 +68,7 @@ if (user.admin) return (
         <Route exact path="/artworks/:id" element={<ViewArtwork  />}></Route>
         <Route exact path="/collections/:id" element={<ViewCollection  />}></Route>
         <Route exact path="/viewartworks/:id" element={<CollectionArtworks/>}></Route>
+        <Route exact path="/tutorials/:id" element={<ViewTutorial />}></Route>
 
 
       </Routes>

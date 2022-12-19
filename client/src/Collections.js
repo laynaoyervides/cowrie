@@ -24,7 +24,7 @@ useEffect(()=> {
         setCollections([...collections, collection]);
      }
     //handle the edit - UPDATE -
-    function handleUpdateCollection(updatedCollection){
+  /*   function handleUpdateCollection(updatedCollection){
         const updatedCollections = collections.map((collection) => {
             if (collection.id === updatedCollection.id) {
                 return updatedCollection;
@@ -34,7 +34,7 @@ useEffect(()=> {
             }
         });
         setCollections(updatedCollections);
-    }
+    } */
     
     function deleteCollection (id) {
         fetch(`/api/collections/${id}` , {
@@ -68,7 +68,6 @@ useEffect(()=> {
                              description={collection.description}
                              collection_img = {collection.collection_img}
                               deleteCollection={deleteCollection}
-                                onUpdateCollection={handleUpdateCollection}
                                 collection ={collection}
                         />
                      ))
