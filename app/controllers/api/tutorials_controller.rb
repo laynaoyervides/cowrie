@@ -9,6 +9,7 @@ class Api::TutorialsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found 
     # GET /tutorials
     def index
+      
         @tutorials = Tutorial.all
         render json: @tutorials
       end
