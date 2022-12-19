@@ -1,15 +1,13 @@
 import React, {useState} from 'react';
 
 function EditCollection({collection, onUpdateCollection}) {
-    const {id, title, description, collection_img} = collection;
+    const {id, title, description} = collection;
     const [updatedTitle, setUpdatedTitle] = useState(title)
     const [updatedDescription, setUpdatedDescription] = useState(description)
-    const [updatedCollectionImg, setUpdatedCollectionImg] = useState(collection_img)
 
     const changeCollection ={
         title: updatedTitle,
         description: updatedDescription,
-        collection_img: updatedCollectionImg,
     }
     function handleEditForm(e) {
         e.preventDefault();

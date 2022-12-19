@@ -1,15 +1,20 @@
-import React , {useState} from 'react';
+import React , {useEffect, useState} from 'react';
 import {Card, CardMedia, Box, Typography, CardContent} from "@mui/material"
 import EditCollection from './EditCollection';
-import ArtworkDetail from './ArtworkDetail';
+//import ArtworkDetail from './ArtworkDetail';
+import CloudinaryCollectionImg from './CloudinaryCollectionImg';
+import {Link} from 'react-router-dom'
 
-function CollectionDetail({deleteCollection, onUpdateCollection, collection, user }) {
-
-    const[artworks, setArtworks] = useState([])
+function CollectionDetail({ onUpdateCollection, collection, user, setCollection }) {
+   // const[artworks, setArtworks] = useState([])
     
-    const{title, description, collection_img}= collection
+    const{id, title, description, collection_img}= collection
+
+
     const [isEditing, setIsEditing]= useState(false);
    // const [artworks, setArtworks] = useState([])
+
+
 
 
     const handleCollectionUpdate = (updatedCollection) => {
@@ -17,12 +22,14 @@ function CollectionDetail({deleteCollection, onUpdateCollection, collection, use
         onUpdateCollection(updatedCollection);
       };
 
+     
+
  //function showArtworks (e) {
  //       e.preventDefault();
   //      setArtworks(collection.artworks)
 
    // } 
-   function handleClick(e) {
+  /*  function handleClick(e) {
     e.preventDefault();
     //get the course
     //show a list of the learners in the course
@@ -30,8 +37,29 @@ function CollectionDetail({deleteCollection, onUpdateCollection, collection, use
     console.log(collection.artworks);    
    
     //{ */      
-    setArtworks(collection.artworks);
-}
+ //  setArtworks(collection.artworks);
+//} 
+
+
+
+const handleUpload = (result) => {
+    const body = {
+      collection_img: result.info.secure_url,
+      cloudinary_public_id: result.info.public_id
+    }
+    fetch(`/api/collections/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
+      .then(res => res.json())
+      .then(collection => {
+        console.log(collection);
+        setCollection(collection)
+      })
+  }
 
     return (
         <div>
@@ -41,12 +69,18 @@ function CollectionDetail({deleteCollection, onUpdateCollection, collection, use
                 height="200"
                 src={collection_img}
             />
+            <CloudinaryCollectionImg 
+              preset="ikf1pzqu"
+              buttonText="Update Cover Image"
+              handleUpload={handleUpload}
+            
+            />
             <CardContent>
                 <Box
                 display={"inline"}
                 >
              { isEditing ? (
-                   <EditCollection collection={collection} onUpdateCollection={handleCollectionUpdate} user={user}/>
+                   <EditCollection collection={collection} setCollection={setCollection} onUpdateCollection={handleCollectionUpdate} user={user}/>
                   ) :
                   (<>
                   <Typography variant="h3">Title: {title}</Typography>
@@ -55,13 +89,16 @@ function CollectionDetail({deleteCollection, onUpdateCollection, collection, use
                   )
             }
             <button onClick={() => setIsEditing((isEditing) => !isEditing)}><h5>EDIT</h5></button>
-            <button onClick={() => deleteCollection(collection.id)}><h5>DELETE</h5></button>
             <br></br>
             <br></br>
-            <button onClick={handleClick}>View Artworks</button>
+            <Link to={{
+                pathname: `/viewartworks/${id}`, 
+                                }}>
+            <button>View Artworks</button>
+            </Link>
             </Box>
             <Box>
-            {artworks.map((artwork) => 
+            {/* {artworks.map((artwork) => 
                 <ArtworkDetail
                 key={artwork.id}
                 id={artwork.id}
@@ -74,7 +111,7 @@ function CollectionDetail({deleteCollection, onUpdateCollection, collection, use
                 keywords={artwork.keywords}
                 artworks={artworks}
                 />
-            )}
+            )} */}
             </Box> 
             </CardContent>
         </Card>

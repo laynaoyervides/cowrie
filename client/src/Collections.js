@@ -1,14 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import {Box, Typography}from '@mui/material'
-import CollectionDetail from './CollectionDetail';
+import CollectionIndex from './CollectionIndex';
 import NewCollection from './NewCollection';
 
 function Collections({user}) {
     const [collections, setCollections] = useState([])
+
 console.log('collections', user.collections)
     
 useEffect(()=> {
-    setCollections(user.collections);
+    fetch("/api/me")
+    .then((r)=> r.json())
+    .then((userArray)=>setCollections(userArray.collections))
 }, []);
   //useEffect( ()=>  {
   //  fetch("/me")
@@ -59,7 +62,7 @@ useEffect(()=> {
                 
                 >
                      {collections.map((collection) => (
-                         <CollectionDetail 
+                         <CollectionIndex
                             key={collection.id}
                             title= {collection.title}
                              description={collection.description}
