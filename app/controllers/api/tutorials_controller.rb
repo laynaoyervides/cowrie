@@ -22,7 +22,7 @@ class Api::TutorialsController < ApplicationController
 # POST /tutorials
     def create
         tutorial = Tutorial.create!(tutorial_params)
-        render json: tutorial, status: accepted
+        render json: tutorial, status: :accepted
     end
 # PATCH/PUT /tutorials/1
   def update
@@ -39,7 +39,7 @@ class Api::TutorialsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
   def tutorial_params
-      params.permit(:title, :topic, :video_url, :description)
+      params.permit(:id, :user_id, :title, :topic, :video_url, :description)
   end
 
   def find_tutorial

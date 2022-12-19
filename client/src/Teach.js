@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import NewTutorial from './NewTutorial';
 import TeachTutorials from './TeachTutorials';
 
 function Teach({user}) {
@@ -12,7 +13,9 @@ useEffect (
         .then((tutorials)=> setTutorials(tutorials))
     }, []
 )
-
+const addNewTutorial= (tutorial) => {
+    setTutorials([...tutorials, tutorial]);
+ }
 function deleteTutorial (id) {
     fetch(`/api/tutorials/${id}` , {
         method: "DELETE",
@@ -41,7 +44,9 @@ function deleteTutorial (id) {
                 id={tutorial.id}
             />
             )}
+            <NewTutorial addNewTutorial={addNewTutorial} user={user}/>
         </div>
+
     );
 }
 
