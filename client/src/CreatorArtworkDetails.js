@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import EditArtwork from './EditArtwork';
+import CloudinaryArtworkImg from './CloudinaryArtworkImg'
 import {Box, CardHeader, CardMedia, Paper, Card, CardContent, Typography, Button} from '@mui/material'
+import {Link} from 'react-router-dom'
 
 function CreatorArtworkDetails({artwork, setArtwork, onUpdateArtwork}) {
     const {id, title, keywords, list_price, owner, img_url, for_sale, img_thumb} = artwork;
@@ -10,6 +12,26 @@ function CreatorArtworkDetails({artwork, setArtwork, onUpdateArtwork}) {
         setIsEditing(false);
         onUpdateArtwork(updatedArtwork)
     }
+
+    const handleUpload = (result) => {
+        const body = {
+          img_url: result.info.secure_url,
+          img_thumb: result.info.eager[0].secure_url,
+          cloudinary_public_id: result.info.public_id
+        }
+        fetch(`/api/artworks/${id}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(body)
+        })
+          .then(res => res.json())
+          .then(artwork => {
+            console.log(artwork);
+            setArtwork(artwork)
+          })
+      }
  
     return (
         <>
@@ -30,8 +52,11 @@ function CreatorArtworkDetails({artwork, setArtwork, onUpdateArtwork}) {
                    { for_sale ? (
                     "Cannot change image after listing this artwork"
                    ): (
-                    <Button>UPLOAD IMAGE (only available if not for sale)</Button>
-
+                    <CloudinaryArtworkImg 
+                        preset="cxoz8yx5"
+                        buttonText="Change Artwork (only available before listing)"
+                        handleUpload={handleUpload}
+                    />
                    )}
                     <CardContent>
                         {isEditing ?(
