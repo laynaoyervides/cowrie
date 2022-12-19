@@ -15,6 +15,7 @@ import ViewCollection from "./ViewCollection"
 import CollectionArtworks from "./CollectionArtworks"
 import TutorialDetail from "./TutorialDetail"
 import ViewTutorial from "./ViewTutorial"
+import ViewArtworkDetails from "./ViewArtworkDetails"
 
 
 function App() {
@@ -52,6 +53,8 @@ if (user.admin) return (
       <Route exact path="/collections/:id" element={<ViewCollection  />}></Route>
       <Route exact path="/viewartworks/:id" element={<CollectionArtworks/>}></Route>
       <Route exact path="/tutorials/:id" element={<ViewTutorial />}></Route>
+      <Route exact path="/editartwork/:id" element={<ViewArtworkDetails />}></Route>
+
     </Routes>
   </div>
 );
@@ -69,7 +72,7 @@ if (user.admin) return (
         <Route exact path="/collections/:id" element={<ViewCollection  />}></Route>
         <Route exact path="/viewartworks/:id" element={<CollectionArtworks/>}></Route>
         <Route exact path="/tutorials/:id" element={<ViewTutorial />}></Route>
-
+        <Route exact path="/editartwork/:id" element={<ViewArtworkDetails />}></Route>
 
       </Routes>
     </div>
