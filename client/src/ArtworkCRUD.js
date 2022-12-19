@@ -1,7 +1,8 @@
 import React from 'react';
 import {Card, CardMedia, CardContent, CardHeader, Typography, Button} from '@mui/material'
+import {Link} from 'react-router-dom'
 
-function ArtworkCRUD({title, description, img_url, img_thumb, keywords, owner, list_price, for_sale}) {
+function ArtworkCRUD({id, title, img_url, img_thumb, keywords, owner, list_price, for_sale}) {
     return (
         <>
           <Card
@@ -17,11 +18,9 @@ function ArtworkCRUD({title, description, img_url, img_thumb, keywords, owner, l
             height="200"
             >
             </CardMedia>
-            <Button>Upload New Artwork Image</Button>
           
             <CardContent>
             <Typography>Keywords: {keywords}</Typography>
-            <Typography>Description: {description}</Typography>
            
            <br></br>
             { for_sale ?  (
@@ -30,7 +29,9 @@ function ArtworkCRUD({title, description, img_url, img_thumb, keywords, owner, l
           "Not for Sale" )
              }
             </CardContent>
-            <Button>Edit Artwork Details</Button>
+            <Link to={{ pathname: `/editartwork/${id}`,}}>
+                <Button>Edit Artwork Details</Button>
+            </Link>
             </Card>  
         </>
     );

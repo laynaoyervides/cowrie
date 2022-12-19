@@ -2,6 +2,7 @@ import { Typography } from '@mui/material';
 import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import ArtworkCRUD from './ArtworkCRUD';
+import NewArtwork from './NewArtwork';
 
 function CollectionArtworks() {
     const {id} = useParams();
@@ -19,12 +20,16 @@ function CollectionArtworks() {
 
     console.log(artworks)
 
+    const addNewArtwork= (artwork) => {
+        setArtworks([...artworks, artwork]);
+     }
+
     return (
         <div>
-            <Typography>Title</Typography>
+            <Typography>Collection Artworks</Typography>
             {artworks.map((artwork)=> 
                     <ArtworkCRUD 
-                        key={artwork.key}
+                        key={artwork.id}
                         title={artwork.title}
                         description={artwork.description}
                         img_url={artwork.img_url}
@@ -33,10 +38,12 @@ function CollectionArtworks() {
                         owner={artwork.owner}
                         list_price={artwork.list_price}
                         for_sale={artwork.for_sale}
+                        id={artwork.id}
                     />
 
             )}
-                
+            <NewArtwork collection_id={id} addNewArtwork={addNewArtwork}/>
+            
         
         </div>
     );

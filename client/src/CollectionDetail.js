@@ -1,4 +1,4 @@
-import React , {useEffect, useState} from 'react';
+import React , {useState} from 'react';
 import {Card, CardMedia, Box, Typography, CardContent} from "@mui/material"
 import EditCollection from './EditCollection';
 //import ArtworkDetail from './ArtworkDetail';
