@@ -1,10 +1,10 @@
+import { Typography } from '@mui/material';
 import React, { useState } from 'react';
 
 function NewCollection({addNewCollection, user}) {
    
    const [title, setTitle] = useState("")
    const [description, setDescription]=useState("")
-   const [image, setImage]=useState("")
 
    const [errors, setErrors] = useState([]);
 
@@ -20,7 +20,6 @@ function NewCollection({addNewCollection, user}) {
             title: title,
             description: description,
             user_id: user.id,
-            collection_img:  image
            }
     ),
   };
@@ -62,16 +61,9 @@ function NewCollection({addNewCollection, user}) {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
             />
-             <label htmlFor="image">Image</label>
-                <input
-                id="image"
-                type="image"
-                placeholder="image"
-                name="image"
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
-            />
-            <button type="submit">Add Collection</button>
+        
+            <button type="submit">Create Collection</button>
+            <Typography>{errors}</Typography>
             </form>
             </div>
     );
