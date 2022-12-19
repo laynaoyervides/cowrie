@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   namespace :api do 
-      get 'uploads/prepare'
+      post 'uploads/prepare'
 
       resources :artworks
       resources :cowries
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       # Routing logic: fallback requests for React Router.
       post "/signup", to: "users#create"
       get "/me", to: "users#show"
+      patch "/me", to: "users#update"
       post "/login", to: "sessions#create"
       delete "/logout", to:"sessions#destroy"
       # Leave this here to help deploy your app later!
