@@ -1,7 +1,6 @@
-README.md
 #Cowrie Crypto NFT Marketplace and Tutorial Application with Rails API 
 
-###About 
+About 
 This app is built with Ruby on Rails and uses Rails to work with an SQL database using Active Record ORM
 
 In this MVP version of the app, the app provides a database and web interface for admin to view, add, edit, and delete tutorials. Users can create collections and artworks, view artworks in the Cowry Marketplace, and make purchases of artworks in the marketplace. Purchases show up in the wallet with an associated NFT which has a 'unique' token (a random number between 1 and 30,000).
