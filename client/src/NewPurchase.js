@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Typography, Box, Button } from '@mui/material';
 import React, {useState} from 'react';
 
 function NewPurchase({artwork, user}) {
@@ -84,16 +84,19 @@ function NewPurchase({artwork, user}) {
 
     return (
         <div>
-            <Typography>This is a new purchase component</Typography>
-            <Typography variant="h4">Buy this Artwork</Typography>
-                <Typography>Price: {list_price}</Typography>
-                <Typography>Royalty Percentage: 10 (default)</Typography>
-                <img src={img_url} width='5%'></img>
-
+          <Box sx={{margin:10, padding: 2}}>
+           
+              <Box sx={{float: 'right',backgroundColor:'#ffffff', padding: 5}}>
+              <Typography variant="h3" sx={{fontFamily:'sans-serif', textAlign:'right'}}>Buy this Artwork</Typography>
+                <Typography sx={{fontFamily:'sans-serif', textAlign:'right'}}>Price: {list_price}</Typography>
+                <Typography sx={{fontFamily:'sans-serif', textAlign:'right'}}>Royalty Percentage: 10 (default)</Typography>
+               <img src={img_url} width='10%'></img>
+                
                 <form onSubmit={handleSubmit}>
 
-                    <label htmlFor="description">DESCRIPTION</label>
-                    <br></br>
+                    <Typography sx={{fontFamily:'sans-serif'}}><label htmlFor="description">DESCRIPTION</label></Typography>
+                   <br></br>
+                    <Typography variant='h6'> Write a description with any details about the purchase that you would like on the NFT</Typography>
                     <textarea
                         id="description"
                         type="text"
@@ -103,15 +106,17 @@ function NewPurchase({artwork, user}) {
                         onChange={(e)=> setDescription(e.target.value)}
                     />
                     <br></br>
-
-                        <button onClick={handleGenerateNft}>Generate NFT</button>
+                    <br></br>
+                        <Typography variant="h6" color="primary">Click Generate NFT to create a TokenId and new contract</Typography>
+                        <Button variant="outlined"onClick={handleGenerateNft}>Generate NFT</Button>
                         <Typography>{nftErrors}</Typography>
 
-                    <button type="submit">Purchase Artwork</button>
+                    <Button type="submit" color="secondary" variant="contained" sx={{float: 'right', color:"#ffffff"}}>Purchase Artwork</Button>
 
                     <Typography>{errors}</Typography>
                 </form>
-
+                </Box>
+                </Box>
         </div>
     );
 }

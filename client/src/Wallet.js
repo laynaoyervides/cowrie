@@ -1,6 +1,6 @@
 import React from 'react';
 import {Typography, Box} from '@mui/material'
-//import Purchases from './Purchases';
+import Purchases from './Purchases';
 //import Investments from './Investments';
 
 
@@ -9,21 +9,27 @@ import {Typography, Box} from '@mui/material'
 function Wallet({user}) {
     return (
         <div>
-            <Typography variant='h1' sx={{textAlign: 'center'}}>WALLET</Typography>
+            <Box
+                            sx={{backgroundColor:'#ffe0b2'}}
 
-            <Box> 
-                <Typography variant='h3' sx={{textAlign: 'center'}}>YOUR NFTS</Typography>
+            >
+            <Typography variant='h1' color="secondary" sx={{textAlign: 'center', fontFamily: 'sans-serif', padding:10}}>WALLET</Typography>
+
+            <Box sx={{margin:10, backgroundColor:'#ffffe4', padding:5}}> 
+                <Typography variant='h3' sx={{textAlign: 'left', fontFamily: 'sans-serif', padding: 2}}>YOUR NFTS</Typography>
             </Box>
 
-            <Box>
-                <Typography variant='h3' sx={{textAlign: 'center'}}>PURCHASES</Typography>
-                {/* <Purchases user={user}/> */}
+            <Box sx={{margin:10, backgroundColor:'#ffffe4', padding:5}}>
+                <Typography variant='h3' sx={{textAlign: 'left', fontFamily: 'sans-serif', padding: 2}}>PURCHASES</Typography>
+                <br></br>
+                 <Purchases user={user}/> 
                
             </Box>
-            <Box>
-                <Typography variant='h3'sx={{textAlign: 'center'}}>INVESTMENTS</Typography>
+            <Box sx={{margin:10, backgroundColor:'#ffffe4', padding:5}}>
+                <Typography variant='h3'sx={{textAlign: 'left', fontFamily: 'sans-serif', padding: 2}}>INVESTMENTS</Typography>
                 {/* <Investments user={user}/> */}
               
+            </Box>
             </Box>
             
         </div>

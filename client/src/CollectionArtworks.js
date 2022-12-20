@@ -26,7 +26,7 @@ function CollectionArtworks() {
 
     return (
         <div>
-            <Typography>Collection Artworks</Typography>
+            <Typography variant='h2' color='primary' sx={{paddingTop:5, marginLeft:8}}>Collection Artworks</Typography>
             {artworks.map((artwork)=> 
                     <ArtworkCRUD 
                         key={artwork.id}

@@ -36,15 +36,18 @@ function Home({user, setUser, onUpdateUser}) {
  
 
     return (
-        <div>
+        <div >
             <Box
             display="grid"            
             flexDirection={'row'}
-            gridTemplateColumns= 'repeat(3, 1fr)' 
+            sx={{backgroundColor:'#e1bee7'}}
             >
-                <Card>
-                    <Typography>PROFILE</Typography>
-                    <Avatar alt="profile picture" src={image_url}></Avatar>
+                <Card
+                sx={{margin:5, padding:5}}               
+                >
+                    <Typography variant='h2'>PROFILE PICTURE</Typography>
+                    <img src={image_url} width="10%" alt="profile pic"></img>
+                    <br></br>
                     <CloudinaryUpload 
                         preset="hgkxhiw2"
                         buttonText="Update Profile Picture"
@@ -52,22 +55,27 @@ function Home({user, setUser, onUpdateUser}) {
                     
                     />
                 </Card>
-                <Card>
-                    <Typography>BIO</Typography>
-                    <p>{bio}</p>
+                <Card
+                 sx={{margin:5, padding:5}}
+                >
+                    <Typography variant='h2'>BIO</Typography>
+                    <Typography variant='h4' color='primary'>{bio}</Typography>
                 </Card>
-                <Card>
-                   <Typography>ACCOUNT INFO</Typography>
+                <Card
+                sx={{margin:5, padding:5}}               
+                >
+                   <Typography variant='h2'>ACCOUNT INFO</Typography>
                    {isEditing ? (
                       <EditUserInfo handleUserUpdate={handleUserUpdate} user={user} setUser={setUser}/>
 
                    ):(
                     <>
-                    <Typography>Username: {username}</Typography>
-                    <Typography> Email: {email}</Typography> 
+                    <Typography variant='h4' color='primary'>Username: {username}</Typography>
+                    <Typography variant='h4' color='primary'> Email: {email}</Typography> 
                      </>
                    )}
-                <Button onClick={() => setIsEditing((isEditing) => !isEditing)}><h5>EDIT</h5></Button>
+                   <br></br>
+                <Button variant="outlined" onClick={() => setIsEditing((isEditing) => !isEditing)}><Typography variant='h5'>EDIT</Typography></Button>
 
                 </Card>
 

@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Typography, Button } from '@mui/material';
 import React, { useState } from 'react';
 
 function NewCollection({addNewCollection, user}) {
@@ -41,9 +41,10 @@ function NewCollection({addNewCollection, user}) {
    
     return (
         <div>
-            <h3>+ ADD A NEW COLLECTION </h3>
+            <Typography variant='h3' color='primary'>+ ADD A NEW COLLECTION </Typography>
             <form onSubmit={handleSubmit}>
-            <label htmlFor="TITLE">TITLE:</label>
+              <br></br>
+              <Typography variant='h5' color="primary"><label htmlFor="TITLE">TITLE:</label></Typography>
                 <input
                 id="TITLE"
                 type="text"
@@ -52,8 +53,10 @@ function NewCollection({addNewCollection, user}) {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
             />
-            <label htmlFor="description">Description</label>
-                <input
+            <br></br>
+            <br></br>
+            <Typography variant='h5' color="primary"><label htmlFor="description">DESCRIPTION:</label></Typography>
+                <textarea
                 id="description"
                 type="text"
                 placeholder="description"
@@ -61,8 +64,9 @@ function NewCollection({addNewCollection, user}) {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
             />
-        
-            <button type="submit">Create Collection</button>
+        <br></br>
+        <br></br>
+            <Button variant="contained" color="secondary" type="submit">Create Collection</Button>
             <Typography>{errors}</Typography>
             </form>
             </div>

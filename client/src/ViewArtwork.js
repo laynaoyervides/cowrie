@@ -24,20 +24,24 @@ console.log(artwork);
 
     return (
         <>
-             <Box>  
+             <Box
+                sx={{backgroundColor:'#ffe0b2', height:1000}}
+                >  
                 <Paper
-                    sx={{margin:5, padding:10, textAlign:"center", float:'left', height:"15%"}}
+                    sx={{margin:5, padding:10, textAlign:"center", float:'left', height:"75%"}}
                 > 
-                    <img alt={artwork.keywords} src={artwork.img_url}></img>  
+                    <img alt={artwork.keywords} src={artwork.img_url} height="80%"></img>  
                 </Paper>      
+                <Box>
                  <Typography 
                     variant='h3' 
-                    sx={{textAlign:"center"}}
+                    sx={{textAlign:"center", padding:10, fontFamily:'sans-serif'}}
                     >
-                        {artwork.title}
+                       TITLE: {artwork.title}
                 </Typography>
                     <Typography
-                    variant="h5"
+                    variant="h4"
+                    sx={{fontFamily:'sans-serif'}}
                     >
                         Owner: {artwork.owner}
                         <br></br>
@@ -51,7 +55,7 @@ console.log(artwork);
                     </Typography>
                                  <br></br>
                 { artwork.for_sale ?  (
-                    <Button id="purchase_button" onClick={
+                    <Button variant="contained" color="secondary" id="purchase_button" sx={{color:'#ffffff'}}onClick={
                         () => setIsClicked((isClicked) => !isClicked)
                     } >PURCHASE</Button>
                     ) : (
@@ -66,7 +70,7 @@ console.log(artwork);
 
              }
              </>
-             
+             </Box>
             </Box>
             
         

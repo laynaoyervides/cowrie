@@ -52,15 +52,15 @@ useEffect(()=> {
 
     return (
 
-        <div>
-            <Box>
-                <Typography>Your Collections are a themed set of artworks</Typography>
-            </Box>
+        <div class="div-1"
+        >
+            
             <Box
                 display="grid" 
                 flexDirection={'row'}
-                
+                sx={{margin:10}}
                 >
+                    <Typography variant='h1' sx={{textAlign: 'left', fontFamily: 'sans-serif', margin:3}}>  MY COLLECTIONS</Typography>
                      {collections.map((collection) => (
                          <CollectionIndex
                             key={collection.id}
@@ -74,7 +74,13 @@ useEffect(()=> {
                  }
 
                  </Box>
-                 <Box>
+                 <Box sx={{margin:10}}>
+                <Typography variant='h4' color='primary'>ABOUT COLLECTIONS : </Typography>
+                <Typography variant='h6' color='primary'>
+                <br></br>Your Collections are themed groups of artworks.
+                <br></br>You can create a collection here and then update details as needed. <br></br>You'll be able to add artworks to the collection. </Typography>
+            </Box>
+                 <Box sx={{margin:10, backgroundColor:'#ffddc1', padding:5}}>
                  <NewCollection addNewCollection={addNewCollection} user={user}/> 
                  </Box>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import {Toolbar, Typography, Tabs, Tab, Button} from '@mui/material'
+import {Toolbar, Typography, Tabs, Tab, Button, Avatar} from '@mui/material'
 
 function Nav({user, setUser}) {
     function handleLogout() {
@@ -14,7 +14,9 @@ function Nav({user, setUser}) {
       if (!user.admin) {
         return(
             <div>
-                <Toolbar>
+                <Toolbar
+                    sx={{backgroundColor:"#ffffff "   }}
+                >
                     <Tabs>
                     <Link to="/"><Tab label="Home" value="0"/></Link>
                     <Link to="/collections"><Tab label="Collections" value="1"/></Link>
@@ -22,18 +24,24 @@ function Nav({user, setUser}) {
                     <Link to="/wallet"><Tab label="Wallet" value="3"/></Link>
                     <Link to="/learn"><Tab label="Learn" value="4"/></Link>
                    
+                    </Tabs>
+                    </Toolbar>
 
-        <header>
+                    <header >
                             { user ? (
                                 <div
                                 style={{
                                     display:"flex",
                                     margin: "20px",
-                                    backgroundcolor: "#82f7ff",
-                                    borderRadius:"5px"
+                                    backgroundColor: "#ffffff",
+                                    borderRadius:"5px",
+                                    padding: '10px',
+                                    float:'right'
 
                                     
                                 }}>
+                                <Avatar alt="profile picture" src={user.image_url}></Avatar>
+
                                 <Typography variant="h6"
                                     sx={{
                                         marginright: "10px",
@@ -53,9 +61,7 @@ function Nav({user, setUser}) {
                                     )
                             }
                         </header>
-                    </Tabs>
                    
-                </Toolbar>
             </div>
         )
       }
@@ -63,33 +69,29 @@ function Nav({user, setUser}) {
 
     return (
         <div>
-            <Toolbar>
-                <Tabs>
-                    <Link to="/"><Tab label="Home" value="0"/></Link>
-                    <Link to="/collections"><Tab label="Collections" value="1"/></Link>
-                    <Link to="/marketplace"><Tab label="Marketplace"value="2"/></Link>
-                    <Link to="/wallet"><Tab label="Wallet" value="3"/></Link>
-                    <Link to="/teach"><Tab label="Teach" value="4"/></Link>
-
-                    <header>
+              <header >
                             { user ? (
                                 <div
                                 style={{
                                     display:"flex",
                                     margin: "20px",
-                                    backgroundColor: "#82f7ff",
-                                    borderRadius:"5px"
+                                    backgroundColor: "#ffffff",
+                                    borderRadius:"5px",
+                                    padding: '10px',
+                                    float:'right'
 
                                     
                                 }}>
-                                <Typography variant="h6"
+                                <Avatar alt="profile picture" src={user.image_url}></Avatar>
+
+                                <Typography variant="h6" color='primary'
                                     sx={{
                                         marginRight: "10px",
                                         paddingLeft: "10px"
                                     }}
                                 >Welcome, {user.username}!</Typography>
                                  <Button 
-                                 variant="contained"
+                                 variant="outlined"
                                  color="secondary"
                                  marginleft="10"
                                  onClick={handleLogout}>
@@ -101,8 +103,23 @@ function Nav({user, setUser}) {
                                     )
                             }
                         </header>
+            <Toolbar sx={{backgroundColor:'#ffffff', width:'100%'
+
+}}>
+                <Tabs>
+                 <Link to="/"><Tab label="Home" value="0"/></Link>
+                    <Link to="/collections"><Tab label="Collections" value="1"/></Link>
+                    <Link to="/marketplace"><Tab label="Marketplace"value="2"/></Link>
+                    <Link to="/wallet"><Tab label="Wallet" value="3"/></Link>
+                    <Link to="/teach"><Tab label="Teach" value="4"/></Link>
+
+                   
                 </Tabs>
+
+
+                
             </Toolbar>
+          
             
         </div>
     );

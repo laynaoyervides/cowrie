@@ -10,7 +10,7 @@ class Api::UsersController < ApplicationController
   #get '/me'
     def show
       if current_user
-          render json: current_user , include: ['collections', 'collections.artworks']
+          render json: current_user , include: ['collections', 'collections.artworks', 'investments', 'purchases', 'nfts']
       else
           render json: { error: 'No active session'}, status: :unauthorized
       end

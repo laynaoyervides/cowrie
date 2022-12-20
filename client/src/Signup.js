@@ -43,7 +43,7 @@ Learn about Crypto, Art, NFTs, and more          </Typography>
         <form onSubmit={handleSubmit}>
             <Box display ="flex" 
             flexDirection={'column'} 
-            maxWidth={400}
+            width='50%'
             alignItems="center"
             justifyContent={"center"}
             margin="auto"
@@ -52,7 +52,7 @@ Learn about Crypto, Art, NFTs, and more          </Typography>
                 borderRadius={5}
                 boxShadow={'5px 5px 10px #ccc'}
                 sx={{
-                    backgroundColor: "#ffff72",           
+                    backgroundColor: "#ffffff",           
                     ":hover": {
                     boxShadow:'10px 10px 20px #ccc'
                 }}}
@@ -93,7 +93,7 @@ SIGNUP
             <Button 
                 type="submit"
                 variant="contained" 
-                color="secondary" 
+                color="primary" 
                 sx={{marginTop: 3, borderRadius: 3}}
                 > 
 Submit                </Button>

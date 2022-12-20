@@ -20,14 +20,17 @@ function ArtListing({id, title, date_created, list_price, owner, img_url, for_sa
         >
 
         </CardMedia>
-        <Typography>{date_created}, {for_sale}, {keywords}</Typography>
+        <Typography variant='h6' sx={{padding:2}}>Date Created: {date_created}, 
+        <br></br> For Sale: {for_sale}, 
+        <br></br>Keywords: {keywords}</Typography>
+        <Typography sx={{padding:2}}>List Price : {list_price}</Typography>
+<br></br>
             <Link to={{
                 pathname: `/artworks/${id}`, 
                                 }}>
-            <Button><Typography>See More</Typography></Button>
+            <Button variant='contained' color='secondary' sx={{float:'right', margin:2}}><Typography variant='h6'sx={{color:'#ffffff'}}>See More</Typography></Button>
             </Link>
             <br></br>
-            <Button>List Price : {list_price}</Button>
 
             </Card>
     

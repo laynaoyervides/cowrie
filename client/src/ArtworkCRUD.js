@@ -20,17 +20,25 @@ function ArtworkCRUD({id, title, img_url, img_thumb, keywords, owner, list_price
             </CardMedia>
           
             <CardContent>
-            <Typography>Keywords: {keywords}</Typography>
+            <Typography variant='h6' color="primary">Keywords: {keywords}</Typography>
            
            <br></br>
             { for_sale ?  (
+                <Typography variant='h6'>
           `List Price: ${list_price}`
+          </Typography>
              ) : (
-          "Not for Sale" )
+                <Typography variant='h6' color="secondary">
+          Not for Sale
+          </Typography>
+           )
+          
              }
             </CardContent>
             <Link to={{ pathname: `/editartwork/${id}`,}}>
-                <Button>Edit Artwork Details</Button>
+                <Button variant="contained"
+                    sx={{float: 'right', margin:2}}
+                >Edit Artwork Details</Button>
             </Link>
             </Card>  
         </>

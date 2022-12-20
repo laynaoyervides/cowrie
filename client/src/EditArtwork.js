@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import React, {useState} from 'react';
 
 function EditArtwork({artwork, onUpdateArtwork}) {
@@ -31,7 +32,7 @@ function EditArtwork({artwork, onUpdateArtwork}) {
         <div>
              <form            
             onSubmit={handleEditForm}>
-            <label htmFor="title">Title: </label>
+            <Typography variant='h5' color="primary" ><label htmFor="title">TITLE: </label></Typography>
             <input
             id="title"
             type="text"
@@ -40,8 +41,9 @@ function EditArtwork({artwork, onUpdateArtwork}) {
             onChange={(e) => setUpdatedTitle(e.target.value)}
             />
             <br></br>
-             <label htmlFor="keywords">Keywords: </label>
-            <input
+            <br></br>
+            <Typography variant='h5' color="primary"><label htmlFor="keywords">Keywords: </label></Typography>
+            <textarea
                 id="keywords"
                 type="text"
                 name="keywords"
@@ -49,9 +51,9 @@ function EditArtwork({artwork, onUpdateArtwork}) {
                 onChange={(e)=>setUpdatedKeywords(e.target.value)}
             />
             <br></br>
-          
+          <br></br>
 
-        <input type="submit" value="Save" />
+   <input type="submit" value="SAVE" /> 
 
                    </form>
         </div>

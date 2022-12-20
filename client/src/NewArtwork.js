@@ -1,4 +1,4 @@
-import { Typography, Box } from '@mui/material';
+import { Typography, Box, Button} from '@mui/material';
 import React, {useState} from 'react';
 
 function NewArtwork({addNewArtwork, collection_id}) {
@@ -40,14 +40,17 @@ function NewArtwork({addNewArtwork, collection_id}) {
     return (
         <div>
             <Box
-                sx={{margin:10}}
+                sx={{margin:10,
+                    backgroundColor: '#fff1ff',
+                    padding: 4
+                }}
             >
-            <Typography variant="h4">
+            <Typography variant="h4" color="primary">
                + Add a new artwork to this collection
             </Typography>
-
+            <br></br>
             <form onSubmit={handleSubmit}>
-            <label htmlFor="TITLE">TITLE: </label>
+          <Typography variant='h5' color="primary"><label htmlFor="TITLE">TITLE: </label></Typography>  
                 <input
                 id="TITLE"
                 type="text"
@@ -57,8 +60,9 @@ function NewArtwork({addNewArtwork, collection_id}) {
                 onChange={(e) => setTitle(e.target.value)}
             />
             <br></br>
-            <label htmlFor="keywords">KEYWORDS: </label>
-                <input
+            <br></br>
+            <Typography variant='h5' color="primary"> <label htmlFor="keywords">KEYWORDS: </label></Typography>
+                <textarea
                 id="keywords"
                 type="text"
                 placeholder="type keywords with commas to separate each keyword"
@@ -66,8 +70,9 @@ function NewArtwork({addNewArtwork, collection_id}) {
                 value={keywords}
                 onChange={(e) => setKeywords(e.target.value)}
             />
-        
-            <button type="submit">Create Artwork</button>
+        <br></br>
+        <br></br>
+            <Button type="submit" variant='contained'>Create Artwork</Button>
             <Typography>{errors}</Typography>
             </form>
 

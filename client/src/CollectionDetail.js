@@ -1,5 +1,5 @@
 import React , {useState} from 'react';
-import {Card, CardMedia, Box, Typography, CardContent} from "@mui/material"
+import {Card, CardMedia, Box, Typography, CardContent, Button} from "@mui/material"
 import EditCollection from './EditCollection';
 //import ArtworkDetail from './ArtworkDetail';
 import CloudinaryCollectionImg from './CloudinaryCollectionImg';
@@ -63,18 +63,24 @@ const handleUpload = (result) => {
 
     return (
         <div>
+          <Box
+            sx={{margin:10}}
+          >
              <Card sx={{width:"60%", padding:"20px", margin:"10px", borderRadius:"10px"}}>
             <CardMedia 
                 component="img"
                 height="200"
                 src={collection_img}
             />
+            <Box 
+            sx={{float:'right', marginTop:2}}>
             <CloudinaryCollectionImg 
               preset="ikf1pzqu"
               buttonText="Update Cover Image"
               handleUpload={handleUpload}
             
             />
+            </Box>
             <CardContent>
                 <Box
                 display={"inline"}
@@ -83,18 +89,21 @@ const handleUpload = (result) => {
                    <EditCollection collection={collection} setCollection={setCollection} onUpdateCollection={handleCollectionUpdate} user={user}/>
                   ) :
                   (<>
+                  <br></br>
                   <Typography variant="h3">Title: {title}</Typography>
+                  <br></br>
                   <Typography variant="h6">Description{description}</Typography>
                   </>
                   )
             }
-            <button onClick={() => setIsEditing((isEditing) => !isEditing)}><h5>EDIT</h5></button>
+            <br></br>
+            <Button color="primary" variant="contained" onClick={() => setIsEditing((isEditing) => !isEditing)}>EDIT</Button>
             <br></br>
             <br></br>
             <Link to={{
                 pathname: `/viewartworks/${id}`, 
                                 }}>
-            <button>View Artworks</button>
+            <Button sx={{float:'right'}}>View Artworks</Button>
             </Link>
             </Box>
             <Box>
@@ -115,7 +124,7 @@ const handleUpload = (result) => {
             </Box> 
             </CardContent>
         </Card>
-        
+        </Box>
         </div>
     );
 }

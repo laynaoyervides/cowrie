@@ -33,7 +33,7 @@ function Login({onLogin}) {
             <Box 
             display ="flex" 
             flexDirection={'column'} 
-            maxWidth={400}
+            width='50%'
             alignItems="center"
             justifyContent={"center"}
             margin="auto"
@@ -43,7 +43,7 @@ function Login({onLogin}) {
                 borderRadius={5}
                 boxShadow={'5px 5px 10px #ccc'}
                 sx={{ 
-                    backgroundColor: "#ffff72",           
+                    backgroundColor: "#ffffff",           
                     ":hover": {
                     boxShadow:'10px 10px 20px #ccc'
                 }}}
@@ -52,7 +52,7 @@ function Login({onLogin}) {
             variant="h2" 
             padding={3} 
             textAlign="center">
-            Login        
+            LOGIN       
             </Typography>
             
             <TextField 
@@ -73,7 +73,7 @@ function Login({onLogin}) {
             <Button 
                 type="submit"
                 variant="contained" 
-                color="secondary" 
+                color="primary" 
                 sx={{marginTop: 3, borderRadius: 3}}
                 >
             LOGIN                    

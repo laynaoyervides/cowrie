@@ -10,8 +10,14 @@ function Landing({onLogin}) {
 
     return (
         <div>
-        <Box>
-            <Typography>Cowry Education</Typography>
+            <div class="landingBack">
+<br></br>
+            </div>
+            
+        <Box sx={{margin:10}}>
+
+
+            <br></br>
         
         {showLogin ? (
                     <>

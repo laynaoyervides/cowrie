@@ -16,6 +16,9 @@ import CollectionArtworks from "./CollectionArtworks"
 import ViewTutorial from "./ViewTutorial"
 import ViewArtworkDetails from "./ViewArtworkDetails"
 
+import {createTheme, ThemeProvider} from '@mui/material/styles'
+import{purple, orange} from 'material-ui-colors';
+
 
 function App() {
 
@@ -31,6 +34,18 @@ useEffect(()=>{
   });
 }, []);
 
+//set mui theme
+const theme = createTheme({
+  
+  palette: {
+    primary: {
+      main: purple[500],
+    },
+    secondary: {
+      main: '#ff6d00',
+    },
+  },
+});
 
 function handleUpdateUser(updatedUser){
         
@@ -40,12 +55,15 @@ function handleUpdateUser(updatedUser){
 
 if (!user) return(
 <div> 
+  <ThemeProvider theme={theme}>
   <Landing onLogin={setUser}/>
+  </ThemeProvider>
 </div>
 )
   
 if (user.admin) return (
   <div>
+      <ThemeProvider theme={theme}>
     <Nav user={user} setUser={setUser}/>
     <Routes>
       <Route exact path="/" element={<Home user={user} setUser={setUser} onUpdateUser={handleUpdateUser}/>}></Route>
@@ -60,11 +78,14 @@ if (user.admin) return (
       <Route exact path="/editartwork/:id" element={<ViewArtworkDetails />}></Route>
 
     </Routes>
+    </ThemeProvider>
+
   </div>
 );
 
   return (
     <div>
+    <ThemeProvider theme={theme}>
       <Nav user={user} setUser={setUser}/>
       <Routes>
         <Route exact path="/" element={<Home user={user} setUser={setUser} onUpdateUser={handleUpdateUser}/>}></Route>
@@ -79,6 +100,8 @@ if (user.admin) return (
         <Route exact path="/editartwork/:id" element={<ViewArtworkDetails />}></Route>
 
       </Routes>
+      </ThemeProvider>
+
     </div>
   );
 }

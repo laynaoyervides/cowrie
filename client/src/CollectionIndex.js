@@ -16,13 +16,17 @@ function CollectionIndex({collection, deleteCollection}) {
              <CardContent>
                 <Box
                 display={"inline"} >
-                    <Typography>{title}</Typography>
-                    <Typography>{description}</Typography>
-                   
+                    <Typography variant='h3'>{title}</Typography>
+                    <br></br>
+                    <Typography variant='h4' color='primary'>Description: {description}</Typography>
+                    <br></br>
+                    <br></br>
+
                    <Link to={{pathname: `/collections/${id}`,}}>                   
-                        <Button>Collection Details</Button>
+                        <Button variant="contained">View Collection Details</Button>
                     </Link>
-                    <button onClick={() => deleteCollection(collection.id)}><h5>DELETE</h5></button>
+                   
+                    <Button sx={{float:'right'}}onClick={() => deleteCollection(collection.id)}><h5>DELETE COLLECTION</h5></Button>
 
                 </Box>
                 </CardContent>

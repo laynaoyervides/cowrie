@@ -25,8 +25,11 @@ function Marketplace({user}) {
            }
 if (artworks.length === 0){
     return (
-        <div>           
-        <Typography variant='h1' sx={{textAlign:'center'}}>Marketplace</Typography>
+        <div>   
+             <Box
+                sx={{backgroundColor:'#ffe0b2'}}
+            >     
+            <Typography variant='h1' color="secondary" sx={{textAlign:'center', padding:10, fontFamily:'sans-serif'}}>MARKETPLACE</Typography>
         <Box            
         sx={{marginLeft:10}}                        >
 
@@ -47,12 +50,16 @@ if (artworks.length === 0){
         <Typography variant="h3">No match for "{q}"</Typography>
 
         </Box>
+        </Box>
         </div>
     )
 }
     return (
         <div>           
-            <Typography variant='h1' sx={{textAlign:'center'}}>Marketplace</Typography>
+            <Box
+                sx={{backgroundColor:'#ffe0b2'}}
+            >
+            <Typography variant='h1' color="secondary" sx={{textAlign:'center', padding:10, fontFamily:'sans-serif'}}>MARKETPLACE</Typography>
             <Box
             sx={{marginLeft:10}}                        >
             
@@ -90,6 +97,7 @@ if (artworks.length === 0){
 
             />
             )}
+        </Box>
         </Box>
         </div>
     );

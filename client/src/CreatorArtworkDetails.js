@@ -40,6 +40,7 @@ function CreatorArtworkDetails({artwork, setArtwork, onUpdateArtwork}) {
              sx={{margin:10}}>
                 <Card>
                     <CardHeader
+                    sx={{color:'#9c27b0'}}                   
                      title={title}
                      subheader={owner}/>
 
@@ -49,14 +50,19 @@ function CreatorArtworkDetails({artwork, setArtwork, onUpdateArtwork}) {
             height="5%">
 
                     </CardMedia>
+                    <br></br>
                    { for_sale ? (
                     "Cannot change image after listing this artwork"
                    ): (
+                    <Box
+                      sx={{padding: 2, fontSize: 20}}
+                    >
                     <CloudinaryArtworkImg 
                         preset="cxoz8yx5"
                         buttonText="Change Artwork (only available before listing)"
                         handleUpload={handleUpload}
                     />
+                    </Box>
                    )}
                     <CardContent>
                         {isEditing ?(
@@ -67,7 +73,7 @@ function CreatorArtworkDetails({artwork, setArtwork, onUpdateArtwork}) {
                 
                             />
                         ): (
-                            <Typography variant="h5">
+                            <Typography variant="h5" color="secondary">
                                For Sale: 
                                {for_sale ? (
                                 " True"
@@ -75,11 +81,12 @@ function CreatorArtworkDetails({artwork, setArtwork, onUpdateArtwork}) {
                                 " Not for Sale"
                                )}
                                <br></br>
+                               <br></br>
                                Keywords: {keywords}
-                                </Typography>
+                               </Typography>
 
-                        )}
-                    <Button onClick={() => setIsEditing((isEditing) => !isEditing)}><h5>EDIT</h5></Button>
+                        )}<br></br>
+                    <Button sx={{float:'right', margin: 2}} variant="contained" color="primary" onClick={() => setIsEditing((isEditing) => !isEditing)}>EDIT</Button>
 
                     </CardContent>
                 </Card>
